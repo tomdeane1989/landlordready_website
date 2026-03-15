@@ -378,7 +378,7 @@ export default async function FeaturePage({
             Start {feature.ctaAction}
           </h2>
           <p className="text-lg mb-8 text-pale-green">
-            Try LandlordReady free for 30 days. No credit card required.
+            Try LandlordReady free for 7 days.
           </p>
           <Link
             href="#"

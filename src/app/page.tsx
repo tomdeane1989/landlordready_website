@@ -34,7 +34,7 @@ export default function HomePage() {
             <SignupButton
               className="inline-block px-8 py-4 rounded-lg font-semibold text-lg transition-opacity hover:opacity-90 bg-amber text-near-black"
             >
-              Get compliant — free for 30 days
+              Get compliant — free for 7 days
             </SignupButton>
             <Link
               href="/features"
@@ -44,7 +44,7 @@ export default function HomePage() {
             </Link>
           </div>
           <p className="mt-4 text-sm text-pale-green/70">
-            No credit card required. Cancel anytime.
+            Cancel anytime.
           </p>
         </div>
       </section>
@@ -211,7 +211,7 @@ export default function HomePage() {
             Simple, transparent pricing
           </h2>
           <p className="text-lg mb-8 text-near-black">
-            Start free for 30 days. Plans from £9/month.
+            Start free for 7 days. Plans from £9/month.
           </p>
           <Link
             href="/pricing"
@@ -235,10 +235,10 @@ export default function HomePage() {
           <SignupButton
             className="inline-block px-8 py-4 rounded-lg font-semibold text-lg transition-opacity hover:opacity-90 bg-amber text-near-black"
           >
-            Get compliant — free for 30 days
+            Get compliant — free for 7 days
           </SignupButton>
           <p className="mt-4 text-sm text-pale-green/70">
-            No credit card required. Cancel anytime.
+            Cancel anytime.
           </p>
         </div>
       </section>

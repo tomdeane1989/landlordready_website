@@ -73,7 +73,7 @@ export function SiteHeader() {
             onClick={() => setSignupOpen(true)}
             className="hidden rounded-md px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90 md:inline-block font-body bg-forest-green"
           >
-            Get compliant &ndash; free for 30 days
+            Get compliant &ndash; free for 7 days
           </button>
 
           {/* Mobile hamburger */}
@@ -124,7 +124,7 @@ export function SiteHeader() {
               }}
               className="mt-2 rounded-md px-5 py-3 text-center text-sm font-semibold text-white transition-opacity hover:opacity-90 font-body bg-forest-green"
             >
-              Get compliant &ndash; free for 30 days
+              Get compliant &ndash; free for 7 days
             </button>
           </div>
         )}

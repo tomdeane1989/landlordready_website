@@ -100,7 +100,7 @@ export function SignupModal({ open, onClose }: SignupModalProps) {
               You&apos;re on the list!
             </h2>
             <p className="text-sm text-near-black font-body mb-6">
-              We&apos;ll be in touch when early access is ready.
+              We&apos;ll be in touch shortly.
             </p>
             <button
               type="button"
@@ -116,7 +116,7 @@ export function SignupModal({ open, onClose }: SignupModalProps) {
               Get compliant
             </h2>
             <p className="text-sm text-near-black font-body mb-6">
-              Sign up for early access &mdash; free for 30 days.
+              Try LandlordReady free for 7 days.
             </p>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -182,7 +182,7 @@ export function SignupModal({ open, onClose }: SignupModalProps) {
                 disabled={status === "loading"}
                 className="w-full rounded-md px-5 py-3 text-sm font-semibold text-white bg-forest-green hover:opacity-90 disabled:opacity-60 font-body"
               >
-                {status === "loading" ? "Submitting\u2026" : "Get early access"}
+                {status === "loading" ? "Submitting\u2026" : "Start free trial"}
               </button>
 
               {status === "error" && (

@@ -8,7 +8,7 @@ import {
 export const metadata: Metadata = {
   title: 'Pricing — Plans for Every Landlord',
   description:
-    'Simple, transparent pricing for LandlordReady. Solo and Portfolio plans with a 30-day free trial, no credit card required. Stay compliant from £9/mo.',
+    'Simple, transparent pricing for LandlordReady. Solo and Portfolio plans with a 7-day free trial. Stay compliant from £9/mo.',
 };
 
 const soloFeatures = [
@@ -30,7 +30,7 @@ const faqItems = [
   {
     question: 'What happens after the free trial?',
     answer:
-      'After your 30-day free trial ends, you can choose to subscribe to a paid plan to continue using LandlordReady. If you decide not to subscribe, your account will be paused and your data kept safe — you can reactivate at any time.',
+      'After your 7-day free trial ends, you can choose to subscribe to a paid plan to continue using LandlordReady. If you decide not to subscribe, your account will be paused and your data kept safe — you can reactivate at any time.',
   },
   {
     question: 'Can I change plans later?',
@@ -103,7 +103,7 @@ export default function PricingPage() {
           </h1>
           <p className="text-lg max-w-2xl mx-auto font-body text-near-black">
             No hidden fees, no surprise charges. Pick the plan that fits your
-            portfolio and start your 30-day free trial today.
+            portfolio and start your 7-day free trial today.
           </p>
         </div>
 
@@ -148,7 +148,7 @@ export default function PricingPage() {
               href="#"
               className="block w-full text-center rounded-lg py-3 px-6 font-semibold text-sm no-underline transition-opacity hover:opacity-90 bg-forest-green text-parchment font-body"
             >
-              Start free for 30 days
+              Start free for 7 days
             </a>
           </div>
 
@@ -195,7 +195,7 @@ export default function PricingPage() {
               href="#"
               className="block w-full text-center rounded-lg py-3 px-6 font-semibold text-sm no-underline transition-opacity hover:opacity-90 bg-forest-green text-parchment font-body"
             >
-              Start free for 30 days
+              Start free for 7 days
             </a>
           </div>
         </div>
@@ -203,9 +203,8 @@ export default function PricingPage() {
         {/* Trust signals */}
         <div className="flex flex-wrap justify-center gap-6 md:gap-10 mb-20">
           {[
-            'No credit card required',
             'Cancel anytime',
-            '30-day free trial on all plans',
+            '7-day free trial on all plans',
           ].map((signal) => (
             <p
               key={signal}

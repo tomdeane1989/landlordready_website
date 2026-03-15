@@ -91,7 +91,7 @@ const steps = [
     number: '1',
     title: 'Sign up',
     description:
-      'Create your free account in under two minutes. No credit card required.',
+      'Create your free account in under two minutes.',
   },
   {
     number: '2',
@@ -128,7 +128,7 @@ export default function FeaturesPage() {
             Start your free trial
           </Link>
           <p className="mt-4 text-sm text-pale-green/70">
-            No credit card required. 30-day free trial.
+            7-day free trial. Cancel anytime.
           </p>
         </div>
       </section>
@@ -221,7 +221,7 @@ export default function FeaturesPage() {
           </h2>
           <p className="text-lg mb-8 text-pale-green">
             Join landlords across England who are using LandlordReady to stay on
-            top of every obligation. Start your free 30-day trial today.
+            top of every obligation. Start your free 7-day trial today.
           </p>
           <Link
             href="#"
@@ -230,7 +230,7 @@ export default function FeaturesPage() {
             Start your free trial
           </Link>
           <p className="mt-4 text-sm text-pale-green/70">
-            No credit card required. Cancel anytime.
+            Cancel anytime.
           </p>
         </div>
       </section>

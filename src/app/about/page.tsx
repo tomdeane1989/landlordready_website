@@ -199,15 +199,15 @@ export default function AboutPage() {
           </h2>
           <p className="text-lg mb-8 text-pale-green">
             Join thousands of private landlords who use LandlordReady to stay on
-            top of their obligations. Start your free trial today.
+            top of their obligations. Start your free 7-day trial today.
           </p>
           <SignupButton
             className="inline-block px-8 py-4 rounded-lg font-semibold text-lg transition-opacity hover:opacity-90 bg-amber text-near-black"
           >
-            Get compliant — free for 30 days
+            Get compliant — free for 7 days
           </SignupButton>
           <p className="mt-4 text-sm text-pale-green/70">
-            No credit card required. Cancel anytime.
+            Cancel anytime.
           </p>
         </div>
       </section>
