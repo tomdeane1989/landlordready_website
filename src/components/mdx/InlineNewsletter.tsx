@@ -48,7 +48,7 @@ export function InlineNewsletter() {
         <p
           className="text-sm font-medium text-forest-green"
         >
-          Thanks for subscribing! Check your inbox to confirm.
+          Thank you! We&apos;ll be in touch shortly.
         </p>
       ) : (
         <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row">

@@ -43,7 +43,7 @@ export function NewsletterForm({
   if (status === "success") {
     return (
       <p className={`font-medium text-forest-green ${compact ? "text-xs" : "text-sm"}`}>
-        Thanks for subscribing!
+        Thank you! We&apos;ll be in touch shortly.
       </p>
     );
   }

@@ -97,7 +97,7 @@ export function SignupModal({ open, onClose }: SignupModalProps) {
         {status === "success" ? (
           <div className="text-center py-6">
             <h2 className="text-2xl font-bold text-forest-green font-display mb-3">
-              You&apos;re on the list!
+              Thank you!
             </h2>
             <p className="text-sm text-near-black font-body mb-6">
               We&apos;ll be in touch shortly.
