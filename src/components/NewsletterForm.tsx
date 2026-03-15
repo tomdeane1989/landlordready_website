@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 interface NewsletterFormProps {
   source: string;
@@ -33,6 +34,7 @@ export function NewsletterForm({
 
       if (!res.ok) throw new Error("Subscription failed");
 
+      trackEvent("generate_lead", { method: source });
       setStatus("success");
       setEmail("");
     } catch {

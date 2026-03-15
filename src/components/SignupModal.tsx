@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, type FormEvent } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 interface SignupModalProps {
   open: boolean;
@@ -59,6 +60,7 @@ export function SignupModal({ open, onClose }: SignupModalProps) {
 
       if (!res.ok) throw new Error("Signup failed");
 
+      trackEvent("sign_up", { method: "signup-modal" });
       setStatus("success");
     } catch {
       setStatus("error");

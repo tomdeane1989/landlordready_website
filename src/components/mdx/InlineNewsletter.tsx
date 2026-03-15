@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 export function InlineNewsletter() {
   const [email, setEmail] = useState("");
@@ -22,6 +23,7 @@ export function InlineNewsletter() {
 
       if (!res.ok) throw new Error("Subscription failed");
 
+      trackEvent("generate_lead", { method: "inline-newsletter" });
       setStatus("success");
       setEmail("");
     } catch {
