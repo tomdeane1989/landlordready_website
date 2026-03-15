@@ -60,23 +60,11 @@ export function Callout({ variant = "tip", children }: CalloutProps) {
 
   return (
     <aside
-      className="my-6 flex gap-3 rounded-lg border-l-4 px-5 py-4"
-      style={{
-        backgroundColor: isTip
-          ? "var(--color-pale-green)"
-          : "var(--color-pale-amber)",
-        borderLeftColor: isTip
-          ? "var(--color-forest-green)"
-          : "var(--color-amber)",
-        color: "var(--color-near-black)",
-      }}
+      className={`my-6 flex gap-3 rounded-lg border-l-4 px-5 py-4 text-near-black ${isTip ? 'bg-pale-green border-l-forest-green' : 'bg-pale-amber border-l-amber'}`}
       role="note"
     >
       <span
-        className="mt-0.5"
-        style={{
-          color: isTip ? "var(--color-forest-green)" : "var(--color-amber)",
-        }}
+        className={`mt-0.5 ${isTip ? 'text-forest-green' : 'text-amber'}`}
       >
         {icons[variant]}
       </span>

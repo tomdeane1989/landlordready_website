@@ -9,13 +9,9 @@ export function RelatedArticles({ posts }: RelatedArticlesProps) {
   if (posts.length === 0) return null;
 
   return (
-    <section className="mt-16 border-t pt-12" style={{ borderColor: 'var(--color-pale-green)' }}>
+    <section className="mt-16 border-t border-pale-green pt-12">
       <h2
-        className="mb-8 text-2xl font-bold"
-        style={{
-          fontFamily: 'var(--font-display)',
-          color: 'var(--color-near-black)',
-        }}
+        className="mb-8 text-2xl font-bold font-display text-near-black"
       >
         Related Articles
       </h2>

@@ -44,17 +44,13 @@ export function TableOfContents({ items }: TableOfContentsProps) {
             <a
               href={`#${item.id}`}
               onClick={() => setIsOpen(false)}
-              className="block rounded px-2 py-1 text-sm leading-snug transition-colors duration-150"
+              className={`block rounded px-2 py-1 text-sm leading-snug font-body transition-colors duration-150 ${
+                activeId === item.id
+                  ? 'text-forest-green bg-pale-green font-semibold'
+                  : 'text-near-black'
+              }`}
               style={{
-                fontFamily: 'var(--font-body)',
-                color:
-                  activeId === item.id
-                    ? 'var(--color-forest-green)'
-                    : 'var(--color-near-black)',
-                fontWeight: activeId === item.id ? 600 : 400,
-                opacity: activeId === item.id ? 1 : 0.65,
-                backgroundColor:
-                  activeId === item.id ? 'var(--color-pale-green)' : 'transparent',
+                ...(activeId !== item.id ? { opacity: 0.65 } : {}),
               }}
             >
               {item.text}
@@ -70,12 +66,7 @@ export function TableOfContents({ items }: TableOfContentsProps) {
       {/* Desktop: sticky sidebar */}
       <aside className="sticky top-24 hidden lg:block">
         <p
-          className="mb-3 text-xs font-semibold uppercase tracking-wider"
-          style={{
-            fontFamily: 'var(--font-body)',
-            color: 'var(--color-near-black)',
-            opacity: 0.5,
-          }}
+          className="mb-3 text-xs font-semibold uppercase tracking-wider font-body text-near-black opacity-50"
         >
           On this page
         </p>
@@ -84,16 +75,11 @@ export function TableOfContents({ items }: TableOfContentsProps) {
 
       {/* Mobile: collapsible */}
       <div
-        className="mb-6 rounded-lg border lg:hidden"
-        style={{ borderColor: 'var(--color-pale-green)' }}
+        className="mb-6 rounded-lg border border-pale-green lg:hidden"
       >
         <button
           onClick={() => setIsOpen((prev) => !prev)}
-          className="flex w-full items-center justify-between px-4 py-3 text-left text-sm font-semibold"
-          style={{
-            fontFamily: 'var(--font-body)',
-            color: 'var(--color-near-black)',
-          }}
+          className="flex w-full items-center justify-between px-4 py-3 text-left text-sm font-semibold font-body text-near-black"
           aria-expanded={isOpen}
         >
           <span>On this page</span>

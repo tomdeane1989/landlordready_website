@@ -26,22 +26,19 @@ export default async function TagPage({ params }: TagPageProps) {
     <main className="py-12 md:py-16 px-6">
       <div className="max-w-5xl mx-auto">
         <nav className="mb-8 text-sm">
-          <Link href="/" className="no-underline hover:underline" style={{ color: 'var(--color-forest-green)' }}>Home</Link>
-          <span className="mx-2" style={{ color: 'var(--color-amber)' }}>›</span>
-          <Link href="/blog" className="no-underline hover:underline" style={{ color: 'var(--color-forest-green)' }}>Blog</Link>
-          <span className="mx-2" style={{ color: 'var(--color-amber)' }}>›</span>
-          <span style={{ color: 'var(--color-near-black)' }}>#{tag}</span>
+          <Link href="/" className="text-forest-green no-underline hover:underline">Home</Link>
+          <span className="mx-2 text-amber">›</span>
+          <Link href="/blog" className="text-forest-green no-underline hover:underline">Blog</Link>
+          <span className="mx-2 text-amber">›</span>
+          <span className="text-near-black">#{tag}</span>
         </nav>
 
-        <h1
-          className="text-3xl md:text-4xl font-bold mb-12"
-          style={{ fontFamily: 'var(--font-display)', color: 'var(--color-forest-green)' }}
-        >
+        <h1 className="text-3xl md:text-4xl font-bold mb-12 font-display text-forest-green">
           Articles tagged &ldquo;{tag}&rdquo;
         </h1>
 
         {posts.length === 0 ? (
-          <p style={{ color: 'var(--color-near-black)' }}>
+          <p className="text-near-black">
             No articles with this tag yet. Check back soon.
           </p>
         ) : (
@@ -50,34 +47,18 @@ export default async function TagPage({ params }: TagPageProps) {
               <Link
                 key={post.frontmatter.slug}
                 href={`/blog/${post.frontmatter.slug}`}
-                className="block rounded-lg p-6 no-underline transition-shadow hover:shadow-md"
-                style={{ backgroundColor: 'white' }}
+                className="block rounded-lg p-6 no-underline transition-shadow hover:shadow-md bg-white"
               >
-                <p
-                  className="text-xs font-semibold uppercase tracking-wide mb-2"
-                  style={{ color: 'var(--color-amber)' }}
-                >
+                <p className="text-xs font-semibold uppercase tracking-wide mb-2 text-amber">
                   {post.frontmatter.category.replace(/-/g, ' ')}
                 </p>
-                <h3
-                  className="text-lg font-bold mb-2"
-                  style={{ fontFamily: 'var(--font-display)', color: 'var(--color-forest-green)' }}
-                >
+                <h3 className="text-lg font-bold mb-2 font-display text-forest-green">
                   {post.frontmatter.title}
                 </h3>
-                <p
-                  className="text-sm leading-relaxed mb-3"
-                  style={{
-                    color: 'var(--color-near-black)',
-                    display: '-webkit-box',
-                    WebkitLineClamp: 2,
-                    WebkitBoxOrient: 'vertical',
-                    overflow: 'hidden',
-                  }}
-                >
+                <p className="text-sm leading-relaxed mb-3 text-near-black line-clamp-2">
                   {post.frontmatter.excerpt}
                 </p>
-                <p className="text-xs" style={{ color: 'var(--color-amber)' }}>
+                <p className="text-xs text-amber">
                   {post.readingTime}
                 </p>
               </Link>

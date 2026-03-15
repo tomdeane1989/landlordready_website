@@ -25,7 +25,7 @@ export function ShareButtons({ url, title }: ShareButtonsProps) {
   };
 
   const buttonClass =
-    'inline-flex h-8 w-8 items-center justify-center rounded-full transition-colors duration-150 hover:opacity-80';
+    'inline-flex h-8 w-8 items-center justify-center rounded-full bg-pale-green text-forest-green transition-colors duration-150 hover:opacity-80';
 
   return (
     <div className="flex items-center gap-2" role="group" aria-label="Share this article">
@@ -35,7 +35,6 @@ export function ShareButtons({ url, title }: ShareButtonsProps) {
         target="_blank"
         rel="noopener noreferrer"
         className={buttonClass}
-        style={{ backgroundColor: 'var(--color-pale-green)', color: 'var(--color-forest-green)' }}
         aria-label="Share on X (Twitter)"
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -49,7 +48,6 @@ export function ShareButtons({ url, title }: ShareButtonsProps) {
         target="_blank"
         rel="noopener noreferrer"
         className={buttonClass}
-        style={{ backgroundColor: 'var(--color-pale-green)', color: 'var(--color-forest-green)' }}
         aria-label="Share on LinkedIn"
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -63,7 +61,6 @@ export function ShareButtons({ url, title }: ShareButtonsProps) {
         target="_blank"
         rel="noopener noreferrer"
         className={buttonClass}
-        style={{ backgroundColor: 'var(--color-pale-green)', color: 'var(--color-forest-green)' }}
         aria-label="Share on Facebook"
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -75,7 +72,6 @@ export function ShareButtons({ url, title }: ShareButtonsProps) {
       <button
         onClick={handleCopy}
         className={buttonClass}
-        style={{ backgroundColor: 'var(--color-pale-green)', color: 'var(--color-forest-green)' }}
         aria-label={copied ? 'Link copied' : 'Copy link'}
       >
         {copied ? (

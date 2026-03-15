@@ -33,25 +33,22 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     <main className="py-12 md:py-16 px-6">
       <div className="max-w-5xl mx-auto">
         <nav className="mb-8 text-sm">
-          <Link href="/" className="no-underline hover:underline" style={{ color: 'var(--color-forest-green)' }}>Home</Link>
-          <span className="mx-2" style={{ color: 'var(--color-amber)' }}>›</span>
-          <Link href="/blog" className="no-underline hover:underline" style={{ color: 'var(--color-forest-green)' }}>Blog</Link>
-          <span className="mx-2" style={{ color: 'var(--color-amber)' }}>›</span>
-          <span style={{ color: 'var(--color-near-black)' }}>{cat.name}</span>
+          <Link href="/" className="text-forest-green no-underline hover:underline">Home</Link>
+          <span className="mx-2 text-amber">›</span>
+          <Link href="/blog" className="text-forest-green no-underline hover:underline">Blog</Link>
+          <span className="mx-2 text-amber">›</span>
+          <span className="text-near-black">{cat.name}</span>
         </nav>
 
-        <h1
-          className="text-3xl md:text-4xl font-bold mb-4"
-          style={{ fontFamily: 'var(--font-display)', color: 'var(--color-forest-green)' }}
-        >
+        <h1 className="text-3xl md:text-4xl font-bold mb-4 font-display text-forest-green">
           {cat.name}
         </h1>
-        <p className="text-lg mb-12" style={{ color: 'var(--color-near-black)' }}>
+        <p className="text-lg mb-12 text-near-black">
           {cat.description}
         </p>
 
         {posts.length === 0 ? (
-          <p style={{ color: 'var(--color-near-black)' }}>
+          <p className="text-near-black">
             No articles in this category yet. Check back soon.
           </p>
         ) : (
@@ -60,28 +57,15 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               <Link
                 key={post.frontmatter.slug}
                 href={`/blog/${post.frontmatter.slug}`}
-                className="block rounded-lg p-6 no-underline transition-shadow hover:shadow-md"
-                style={{ backgroundColor: 'white' }}
+                className="block rounded-lg p-6 no-underline transition-shadow hover:shadow-md bg-white"
               >
-                <h3
-                  className="text-lg font-bold mb-2"
-                  style={{ fontFamily: 'var(--font-display)', color: 'var(--color-forest-green)' }}
-                >
+                <h3 className="text-lg font-bold mb-2 font-display text-forest-green">
                   {post.frontmatter.title}
                 </h3>
-                <p
-                  className="text-sm leading-relaxed mb-3"
-                  style={{
-                    color: 'var(--color-near-black)',
-                    display: '-webkit-box',
-                    WebkitLineClamp: 2,
-                    WebkitBoxOrient: 'vertical',
-                    overflow: 'hidden',
-                  }}
-                >
+                <p className="text-sm leading-relaxed mb-3 text-near-black line-clamp-2">
                   {post.frontmatter.excerpt}
                 </p>
-                <p className="text-xs" style={{ color: 'var(--color-amber)' }}>
+                <p className="text-xs text-amber">
                   {post.readingTime} · {new Date(post.frontmatter.publishedAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
                 </p>
               </Link>

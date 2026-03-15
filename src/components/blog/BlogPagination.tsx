@@ -33,15 +33,13 @@ export function BlogPagination({ currentPage, totalPages, basePath }: BlogPagina
   return (
     <nav
       aria-label="Blog pagination"
-      className="mt-12 flex items-center justify-center gap-2"
-      style={{ fontFamily: 'var(--font-body)' }}
+      className="mt-12 flex items-center justify-center gap-2 font-body"
     >
       {/* Previous */}
       {currentPage > 1 ? (
         <Link
           href={pageHref(basePath, currentPage - 1)}
-          className="mr-2 inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors duration-150"
-          style={{ color: 'var(--color-forest-green)' }}
+          className="mr-2 inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-forest-green transition-colors duration-150"
           aria-label="Previous page"
         >
           <svg
@@ -61,8 +59,7 @@ export function BlogPagination({ currentPage, totalPages, basePath }: BlogPagina
         </Link>
       ) : (
         <span
-          className="mr-2 inline-flex items-center gap-1 px-3 py-2 text-sm font-medium"
-          style={{ opacity: 0.3, color: 'var(--color-near-black)' }}
+          className="mr-2 inline-flex items-center gap-1 px-3 py-2 text-sm font-medium text-near-black opacity-30"
           aria-disabled="true"
         >
           <svg
@@ -87,8 +84,7 @@ export function BlogPagination({ currentPage, totalPages, basePath }: BlogPagina
         page === 'ellipsis' ? (
           <span
             key={`ellipsis-${index}`}
-            className="inline-flex h-10 w-10 items-center justify-center text-sm"
-            style={{ color: 'var(--color-near-black)', opacity: 0.4 }}
+            className="inline-flex h-10 w-10 items-center justify-center text-sm text-near-black opacity-40"
             aria-hidden="true"
           >
             &hellip;
@@ -96,11 +92,7 @@ export function BlogPagination({ currentPage, totalPages, basePath }: BlogPagina
         ) : page === currentPage ? (
           <span
             key={page}
-            className={linkClass}
-            style={{
-              backgroundColor: 'var(--color-forest-green)',
-              color: 'var(--color-white)',
-            }}
+            className={`${linkClass} bg-forest-green text-white`}
             aria-current="page"
           >
             {page}
@@ -109,10 +101,7 @@ export function BlogPagination({ currentPage, totalPages, basePath }: BlogPagina
           <Link
             key={page}
             href={pageHref(basePath, page)}
-            className={`${linkClass} hover:bg-[var(--color-pale-green)]`}
-            style={{
-              color: 'var(--color-near-black)',
-            }}
+            className={`${linkClass} text-near-black hover:bg-pale-green`}
           >
             {page}
           </Link>
@@ -123,8 +112,7 @@ export function BlogPagination({ currentPage, totalPages, basePath }: BlogPagina
       {currentPage < totalPages ? (
         <Link
           href={pageHref(basePath, currentPage + 1)}
-          className="ml-2 inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors duration-150"
-          style={{ color: 'var(--color-forest-green)' }}
+          className="ml-2 inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-forest-green transition-colors duration-150"
           aria-label="Next page"
         >
           Next
@@ -144,8 +132,7 @@ export function BlogPagination({ currentPage, totalPages, basePath }: BlogPagina
         </Link>
       ) : (
         <span
-          className="ml-2 inline-flex items-center gap-1 px-3 py-2 text-sm font-medium"
-          style={{ opacity: 0.3, color: 'var(--color-near-black)' }}
+          className="ml-2 inline-flex items-center gap-1 px-3 py-2 text-sm font-medium text-near-black opacity-30"
           aria-disabled="true"
         >
           Next

@@ -5,12 +5,7 @@ interface ReadingTimeProps {
 export function ReadingTime({ minutes }: ReadingTimeProps) {
   return (
     <span
-      className="inline-flex items-center gap-1 text-sm"
-      style={{
-        color: 'var(--color-near-black)',
-        fontFamily: 'var(--font-body)',
-        opacity: 0.6,
-      }}
+      className="inline-flex items-center gap-1 text-sm text-near-black font-body opacity-60"
     >
       <svg
         width="14"

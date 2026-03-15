@@ -22,17 +22,12 @@ function getInitials(name: string): string {
 export function AuthorBio({ author }: AuthorBioProps) {
   return (
     <section
-      className="rounded-lg p-6"
-      style={{ backgroundColor: 'var(--color-pale-green)' }}
+      className="rounded-lg bg-pale-green p-6"
       aria-label="About the author"
     >
       <div className="flex gap-4">
         <div
-          className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full text-lg font-bold text-white"
-          style={{
-            backgroundColor: 'var(--color-forest-green)',
-            fontFamily: 'var(--font-display)',
-          }}
+          className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-forest-green font-display text-lg font-bold text-white"
           aria-hidden="true"
         >
           {getInitials(author.name)}
@@ -40,30 +35,17 @@ export function AuthorBio({ author }: AuthorBioProps) {
 
         <div>
           <p
-            className="text-base font-bold"
-            style={{
-              fontFamily: 'var(--font-display)',
-              color: 'var(--color-near-black)',
-            }}
+            className="text-base font-bold font-display text-near-black"
           >
             {author.name}
           </p>
           <p
-            className="mb-2 text-sm"
-            style={{
-              fontFamily: 'var(--font-body)',
-              color: 'var(--color-amber)',
-            }}
+            className="mb-2 text-sm font-body text-amber"
           >
             {author.role}
           </p>
           <p
-            className="text-sm leading-relaxed"
-            style={{
-              fontFamily: 'var(--font-body)',
-              color: 'var(--color-near-black)',
-              opacity: 0.75,
-            }}
+            className="text-sm leading-relaxed font-body text-near-black opacity-75"
           >
             {author.bio}
           </p>

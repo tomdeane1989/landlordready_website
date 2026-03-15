@@ -14,12 +14,7 @@ interface FAQItemProps {
 export function FAQAccordion({ children }: FAQAccordionProps) {
   return (
     <div
-      className="my-6 divide-y rounded-lg border"
-      style={{
-        borderColor: "var(--color-pale-green)",
-        // @ts-expect-error CSS custom property for Tailwind divide color
-        "--tw-divide-color": "var(--color-pale-green)",
-      }}
+      className="my-6 divide-y rounded-lg border border-pale-green divide-pale-green"
     >
       {children}
     </div>
@@ -34,11 +29,7 @@ export function FAQItem({ question, children }: FAQItemProps) {
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-semibold transition-colors hover:opacity-80"
-        style={{
-          color: "var(--color-forest-green)",
-          fontFamily: "var(--font-body)",
-        }}
+        className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-semibold transition-colors hover:opacity-80 text-forest-green font-body"
         aria-expanded={open}
       >
         <span>{question}</span>
@@ -62,11 +53,7 @@ export function FAQItem({ question, children }: FAQItemProps) {
 
       {open && (
         <div
-          className="px-5 pb-4 text-sm leading-relaxed [&>p]:m-0"
-          style={{
-            color: "var(--color-near-black)",
-            fontFamily: "var(--font-body)",
-          }}
+          className="px-5 pb-4 text-sm leading-relaxed [&>p]:m-0 text-near-black font-body"
         >
           {children}
         </div>

@@ -30,20 +30,15 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-shadow duration-200 ${
+      className={`sticky top-0 z-50 w-full bg-parchment transition-shadow duration-200 ${
         scrolled ? "shadow-md" : ""
       }`}
-      style={{ backgroundColor: "var(--color-parchment)" }}
     >
       <nav className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-4">
         {/* Wordmark */}
         <Link
           href="/"
-          className="text-2xl font-bold no-underline"
-          style={{
-            fontFamily: "var(--font-display), serif",
-            color: "var(--color-forest-green)",
-          }}
+          className="text-2xl font-bold no-underline font-display text-forest-green"
         >
           LandlordReady
         </Link>
@@ -54,11 +49,7 @@ export function SiteHeader() {
             <li key={href}>
               <Link
                 href={href}
-                className="text-sm font-medium no-underline transition-opacity hover:opacity-70"
-                style={{
-                  fontFamily: "var(--font-body), sans-serif",
-                  color: "var(--color-forest-green)",
-                }}
+                className="text-sm font-medium no-underline transition-opacity hover:opacity-70 font-body text-forest-green"
               >
                 {label}
               </Link>
@@ -69,11 +60,7 @@ export function SiteHeader() {
         {/* Desktop CTA */}
         <Link
           href="/signup"
-          className="hidden rounded-md px-5 py-2.5 text-sm font-semibold text-white no-underline transition-opacity hover:opacity-90 md:inline-block"
-          style={{
-            fontFamily: "var(--font-body), sans-serif",
-            backgroundColor: "var(--color-forest-green)",
-          }}
+          className="hidden rounded-md px-5 py-2.5 text-sm font-semibold text-white no-underline transition-opacity hover:opacity-90 md:inline-block font-body bg-forest-green"
         >
           Get compliant &ndash; free for 30 days
         </Link>
@@ -86,22 +73,19 @@ export function SiteHeader() {
           onClick={() => setMobileOpen((prev) => !prev)}
         >
           <span
-            className={`block h-0.5 w-6 transition-transform duration-200 ${
+            className={`block h-0.5 w-6 bg-forest-green transition-transform duration-200 ${
               mobileOpen ? "translate-y-2 rotate-45" : ""
             }`}
-            style={{ backgroundColor: "var(--color-forest-green)" }}
           />
           <span
-            className={`block h-0.5 w-6 transition-opacity duration-200 ${
+            className={`block h-0.5 w-6 bg-forest-green transition-opacity duration-200 ${
               mobileOpen ? "opacity-0" : ""
             }`}
-            style={{ backgroundColor: "var(--color-forest-green)" }}
           />
           <span
-            className={`block h-0.5 w-6 transition-transform duration-200 ${
+            className={`block h-0.5 w-6 bg-forest-green transition-transform duration-200 ${
               mobileOpen ? "-translate-y-2 -rotate-45" : ""
             }`}
-            style={{ backgroundColor: "var(--color-forest-green)" }}
           />
         </button>
       </nav>
@@ -109,19 +93,14 @@ export function SiteHeader() {
       {/* Mobile menu */}
       {mobileOpen && (
         <div
-          className="flex flex-col gap-6 px-6 pb-8 pt-2 md:hidden"
-          style={{ backgroundColor: "var(--color-parchment)" }}
+          className="flex flex-col gap-6 px-6 pb-8 pt-2 md:hidden bg-parchment"
         >
           {navLinks.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
               onClick={() => setMobileOpen(false)}
-              className="text-lg font-medium no-underline"
-              style={{
-                fontFamily: "var(--font-body), sans-serif",
-                color: "var(--color-forest-green)",
-              }}
+              className="text-lg font-medium no-underline font-body text-forest-green"
             >
               {label}
             </Link>
@@ -129,11 +108,7 @@ export function SiteHeader() {
           <Link
             href="/signup"
             onClick={() => setMobileOpen(false)}
-            className="mt-2 rounded-md px-5 py-3 text-center text-sm font-semibold text-white no-underline transition-opacity hover:opacity-90"
-            style={{
-              fontFamily: "var(--font-body), sans-serif",
-              backgroundColor: "var(--color-forest-green)",
-            }}
+            className="mt-2 rounded-md px-5 py-3 text-center text-sm font-semibold text-white no-underline transition-opacity hover:opacity-90 font-body bg-forest-green"
           >
             Get compliant &ndash; free for 30 days
           </Link>

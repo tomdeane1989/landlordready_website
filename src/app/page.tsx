@@ -15,70 +15,44 @@ export default function HomePage() {
   return (
     <main>
       {/* Hero */}
-      <section
-        className="py-16 md:py-24 px-6"
-        style={{ backgroundColor: 'var(--color-forest-green)' }}
-      >
+      <section className="bg-forest-green py-16 md:py-24 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <p
-            className="text-sm font-medium mb-4 tracking-wide uppercase"
-            style={{ color: 'var(--color-amber)' }}
-          >
+          <p className="text-sm font-medium mb-4 tracking-wide uppercase text-amber">
             <CountdownDays />
           </p>
-          <h1
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-            style={{
-              fontFamily: 'var(--font-display)',
-              color: 'var(--color-parchment)',
-            }}
-          >
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-display text-parchment">
             The Renters&apos; Rights Act is coming.
             <br />
             Are you ready?
           </h1>
-          <p
-            className="text-lg md:text-xl mb-8 max-w-2xl mx-auto"
-            style={{ color: 'var(--color-pale-green)' }}
-          >
+          <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto text-pale-green">
             LandlordReady helps private landlords track every obligation, deadline,
             and certificate — so nothing slips through the cracks.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="#"
-              className="inline-block px-8 py-4 rounded-lg font-semibold text-lg no-underline transition-opacity hover:opacity-90"
-              style={{
-                backgroundColor: 'var(--color-amber)',
-                color: 'var(--color-near-black)',
-              }}
+              className="inline-block px-8 py-4 rounded-lg font-semibold text-lg no-underline transition-opacity hover:opacity-90 bg-amber text-near-black"
             >
               Get compliant — free for 30 days
             </Link>
             <Link
               href="/features"
-              className="inline-block px-8 py-4 rounded-lg font-semibold text-lg no-underline border-2 transition-opacity hover:opacity-80"
-              style={{
-                borderColor: 'var(--color-parchment)',
-                color: 'var(--color-parchment)',
-              }}
+              className="inline-block px-8 py-4 rounded-lg font-semibold text-lg no-underline border-2 border-parchment text-parchment transition-opacity hover:opacity-80"
             >
               See how it works
             </Link>
           </div>
-          <p className="mt-4 text-sm" style={{ color: 'var(--color-pale-green)', opacity: 0.7 }}>
+          <p className="mt-4 text-sm text-pale-green/70">
             No credit card required. Cancel anytime.
           </p>
         </div>
       </section>
 
       {/* Problem cards */}
-      <section className="py-16 md:py-20 px-6" style={{ backgroundColor: 'var(--color-pale-amber)' }}>
+      <section className="bg-pale-amber py-16 md:py-20 px-6">
         <div className="max-w-5xl mx-auto">
-          <h2
-            className="text-3xl md:text-4xl font-bold text-center mb-12"
-            style={{ fontFamily: 'var(--font-display)', color: 'var(--color-forest-green)' }}
-          >
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 font-display text-forest-green">
             The law is changing. Most landlords aren&apos;t prepared.
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -99,18 +73,11 @@ export default function HomePage() {
                   "If you manage 1-2 properties, you probably don't have a compliance team. You need a simple way to know exactly what's required and when.",
               },
             ].map((card) => (
-              <div
-                key={card.title}
-                className="p-6 rounded-lg"
-                style={{ backgroundColor: 'var(--color-parchment)' }}
-              >
-                <h3
-                  className="text-xl font-semibold mb-3"
-                  style={{ color: 'var(--color-forest-green)' }}
-                >
+              <div key={card.title} className="p-6 rounded-lg bg-parchment">
+                <h3 className="text-xl font-semibold mb-3 text-forest-green">
                   {card.title}
                 </h3>
-                <p className="leading-relaxed" style={{ color: 'var(--color-near-black)' }}>
+                <p className="leading-relaxed text-near-black">
                   {card.description}
                 </p>
               </div>
@@ -120,15 +87,12 @@ export default function HomePage() {
       </section>
 
       {/* Feature summary */}
-      <section className="py-16 md:py-20 px-6" style={{ backgroundColor: 'var(--color-parchment)' }}>
+      <section className="bg-parchment py-16 md:py-20 px-6">
         <div className="max-w-5xl mx-auto">
-          <h2
-            className="text-3xl md:text-4xl font-bold text-center mb-4"
-            style={{ fontFamily: 'var(--font-display)', color: 'var(--color-forest-green)' }}
-          >
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 font-display text-forest-green">
             10-minute compliance. Every week.
           </h2>
-          <p className="text-center text-lg mb-12 max-w-2xl mx-auto" style={{ color: 'var(--color-near-black)' }}>
+          <p className="text-center text-lg mb-12 max-w-2xl mx-auto text-near-black">
             LandlordReady keeps track of your obligations so you don&apos;t have to.
           </p>
           <div className="grid md:grid-cols-3 gap-8">
@@ -150,19 +114,13 @@ export default function HomePage() {
               },
             ].map((feature) => (
               <div key={feature.title} className="text-center">
-                <div
-                  className="w-14 h-14 rounded-full mx-auto mb-4 flex items-center justify-center"
-                  style={{ backgroundColor: 'var(--color-pale-green)' }}
-                >
-                  <span style={{ color: 'var(--color-forest-green)', fontSize: '1.5rem' }}>✓</span>
+                <div className="w-14 h-14 rounded-full mx-auto mb-4 flex items-center justify-center bg-pale-green">
+                  <span className="text-forest-green text-2xl">✓</span>
                 </div>
-                <h3
-                  className="text-xl font-semibold mb-2"
-                  style={{ color: 'var(--color-forest-green)' }}
-                >
+                <h3 className="text-xl font-semibold mb-2 text-forest-green">
                   {feature.title}
                 </h3>
-                <p className="leading-relaxed" style={{ color: 'var(--color-near-black)' }}>
+                <p className="leading-relaxed text-near-black">
                   {feature.description}
                 </p>
               </div>
@@ -172,12 +130,9 @@ export default function HomePage() {
       </section>
 
       {/* How it works */}
-      <section className="py-16 md:py-20 px-6" style={{ backgroundColor: 'var(--color-pale-green)' }}>
+      <section className="bg-pale-green py-16 md:py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2
-            className="text-3xl md:text-4xl font-bold mb-12"
-            style={{ fontFamily: 'var(--font-display)', color: 'var(--color-forest-green)' }}
-          >
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 font-display text-forest-green">
             How it works
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -187,23 +142,13 @@ export default function HomePage() {
               { step: '3', title: 'Stay compliant', description: 'Get alerts before deadlines. When the law changes, your tasks update automatically.' },
             ].map((item) => (
               <div key={item.step}>
-                <div
-                  className="w-12 h-12 rounded-full mx-auto mb-4 flex items-center justify-center text-xl font-bold"
-                  style={{
-                    backgroundColor: 'var(--color-forest-green)',
-                    color: 'var(--color-parchment)',
-                    fontFamily: 'var(--font-display)',
-                  }}
-                >
+                <div className="w-12 h-12 rounded-full mx-auto mb-4 flex items-center justify-center text-xl font-bold bg-forest-green text-parchment font-display">
                   {item.step}
                 </div>
-                <h3
-                  className="text-xl font-semibold mb-2"
-                  style={{ color: 'var(--color-forest-green)' }}
-                >
+                <h3 className="text-xl font-semibold mb-2 text-forest-green">
                   {item.title}
                 </h3>
-                <p style={{ color: 'var(--color-near-black)' }}>{item.description}</p>
+                <p className="text-near-black">{item.description}</p>
               </div>
             ))}
           </div>
@@ -212,19 +157,15 @@ export default function HomePage() {
 
       {/* Latest blog posts */}
       {recentPosts.length > 0 && (
-        <section className="py-16 md:py-20 px-6" style={{ backgroundColor: 'var(--color-parchment)' }}>
+        <section className="bg-parchment py-16 md:py-20 px-6">
           <div className="max-w-5xl mx-auto">
             <div className="flex justify-between items-center mb-12">
-              <h2
-                className="text-3xl md:text-4xl font-bold"
-                style={{ fontFamily: 'var(--font-display)', color: 'var(--color-forest-green)' }}
-              >
+              <h2 className="text-3xl md:text-4xl font-bold font-display text-forest-green">
                 Latest from the blog
               </h2>
               <Link
                 href="/blog"
-                className="font-semibold no-underline hidden md:inline-block"
-                style={{ color: 'var(--color-forest-green)' }}
+                className="font-semibold no-underline hidden md:inline-block text-forest-green"
               >
                 View all articles →
               </Link>
@@ -234,37 +175,18 @@ export default function HomePage() {
                 <Link
                   key={post.frontmatter.slug}
                   href={`/blog/${post.frontmatter.slug}`}
-                  className="block rounded-lg p-6 no-underline transition-shadow hover:shadow-md"
-                  style={{ backgroundColor: 'white' }}
+                  className="block rounded-lg p-6 no-underline transition-shadow hover:shadow-md bg-white"
                 >
-                  <p
-                    className="text-xs font-semibold uppercase tracking-wide mb-2"
-                    style={{ color: 'var(--color-amber)' }}
-                  >
+                  <p className="text-xs font-semibold uppercase tracking-wide mb-2 text-amber">
                     {post.frontmatter.category.replace(/-/g, ' ')}
                   </p>
-                  <h3
-                    className="text-lg font-bold mb-2"
-                    style={{
-                      fontFamily: 'var(--font-display)',
-                      color: 'var(--color-forest-green)',
-                    }}
-                  >
+                  <h3 className="text-lg font-bold mb-2 font-display text-forest-green">
                     {post.frontmatter.title}
                   </h3>
-                  <p
-                    className="text-sm leading-relaxed mb-3"
-                    style={{
-                      color: 'var(--color-near-black)',
-                      display: '-webkit-box',
-                      WebkitLineClamp: 2,
-                      WebkitBoxOrient: 'vertical',
-                      overflow: 'hidden',
-                    }}
-                  >
+                  <p className="text-sm leading-relaxed mb-3 text-near-black line-clamp-2">
                     {post.frontmatter.excerpt}
                   </p>
-                  <p className="text-xs" style={{ color: 'var(--color-amber)' }}>
+                  <p className="text-xs text-amber">
                     {post.readingTime}
                   </p>
                 </Link>
@@ -273,8 +195,7 @@ export default function HomePage() {
             <div className="text-center mt-8 md:hidden">
               <Link
                 href="/blog"
-                className="font-semibold no-underline"
-                style={{ color: 'var(--color-forest-green)' }}
+                className="font-semibold no-underline text-forest-green"
               >
                 View all articles →
               </Link>
@@ -284,24 +205,17 @@ export default function HomePage() {
       )}
 
       {/* Pricing preview */}
-      <section className="py-16 md:py-20 px-6" style={{ backgroundColor: 'var(--color-pale-green)' }}>
+      <section className="bg-pale-green py-16 md:py-20 px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <h2
-            className="text-3xl md:text-4xl font-bold mb-4"
-            style={{ fontFamily: 'var(--font-display)', color: 'var(--color-forest-green)' }}
-          >
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 font-display text-forest-green">
             Simple, transparent pricing
           </h2>
-          <p className="text-lg mb-8" style={{ color: 'var(--color-near-black)' }}>
+          <p className="text-lg mb-8 text-near-black">
             Start free for 30 days. Plans from £9/month.
           </p>
           <Link
             href="/pricing"
-            className="inline-block px-8 py-4 rounded-lg font-semibold text-lg no-underline transition-opacity hover:opacity-90"
-            style={{
-              backgroundColor: 'var(--color-forest-green)',
-              color: 'var(--color-parchment)',
-            }}
+            className="inline-block px-8 py-4 rounded-lg font-semibold text-lg no-underline transition-opacity hover:opacity-90 bg-forest-green text-parchment"
           >
             View pricing
           </Link>
@@ -309,35 +223,22 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA */}
-      <section
-        className="py-16 md:py-24 px-6"
-        style={{ backgroundColor: 'var(--color-forest-green)' }}
-      >
+      <section className="bg-forest-green py-16 md:py-24 px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <h2
-            className="text-3xl md:text-4xl font-bold mb-4"
-            style={{
-              fontFamily: 'var(--font-display)',
-              color: 'var(--color-parchment)',
-            }}
-          >
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 font-display text-parchment">
             You&apos;ve got time — let&apos;s sort it.
           </h2>
-          <p className="text-lg mb-8" style={{ color: 'var(--color-pale-green)' }}>
+          <p className="text-lg mb-8 text-pale-green">
             Phase 1 of the Renters&apos; Rights Act takes effect on 1 May 2026.
             Get your properties compliant before the deadline.
           </p>
           <Link
             href="#"
-            className="inline-block px-8 py-4 rounded-lg font-semibold text-lg no-underline transition-opacity hover:opacity-90"
-            style={{
-              backgroundColor: 'var(--color-amber)',
-              color: 'var(--color-near-black)',
-            }}
+            className="inline-block px-8 py-4 rounded-lg font-semibold text-lg no-underline transition-opacity hover:opacity-90 bg-amber text-near-black"
           >
             Get compliant — free for 30 days
           </Link>
-          <p className="mt-4 text-sm" style={{ color: 'var(--color-pale-green)', opacity: 0.7 }}>
+          <p className="mt-4 text-sm text-pale-green/70">
             No credit card required. Cancel anytime.
           </p>
         </div>

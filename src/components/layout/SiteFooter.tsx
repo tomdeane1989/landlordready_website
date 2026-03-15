@@ -27,11 +27,8 @@ const footerColumns = [
 export function SiteFooter() {
   return (
     <footer
-      className="w-full border-t"
-      style={{
-        backgroundColor: "var(--color-parchment)",
-        borderColor: "rgba(26, 61, 43, 0.2)",
-      }}
+      className="w-full border-t bg-parchment"
+      style={{ borderColor: "rgba(26, 61, 43, 0.2)" }}
     >
       <div className="mx-auto max-w-[1200px] px-6 py-16">
         <div className="flex flex-col gap-12 md:flex-row md:justify-between">
@@ -39,11 +36,7 @@ export function SiteFooter() {
           <div>
             <Link
               href="/"
-              className="text-2xl font-bold no-underline"
-              style={{
-                fontFamily: "var(--font-display), serif",
-                color: "var(--color-forest-green)",
-              }}
+              className="text-2xl font-bold no-underline font-display text-forest-green"
             >
               LandlordReady
             </Link>
@@ -54,11 +47,7 @@ export function SiteFooter() {
             {footerColumns.map((col) => (
               <div key={col.title}>
                 <h4
-                  className="mb-4 text-sm font-semibold uppercase tracking-wide"
-                  style={{
-                    fontFamily: "var(--font-body), sans-serif",
-                    color: "var(--color-forest-green)",
-                  }}
+                  className="mb-4 text-sm font-semibold uppercase tracking-wide font-body text-forest-green"
                 >
                   {col.title}
                 </h4>
@@ -67,11 +56,7 @@ export function SiteFooter() {
                     <li key={href}>
                       <Link
                         href={href}
-                        className="text-sm no-underline transition-opacity hover:opacity-70"
-                        style={{
-                          fontFamily: "var(--font-body), sans-serif",
-                          color: "var(--color-near-black)",
-                        }}
+                        className="text-sm no-underline transition-opacity hover:opacity-70 font-body text-near-black"
                       >
                         {label}
                       </Link>
@@ -89,13 +74,7 @@ export function SiteFooter() {
           style={{ borderColor: "rgba(26, 61, 43, 0.15)" }}
         >
           <p
-            className="text-xs"
-            style={{
-              fontFamily: "var(--font-mono), monospace",
-              color: "var(--color-near-black)",
-              opacity: 0.6,
-              marginBottom: 0,
-            }}
+            className="text-xs font-mono text-near-black opacity-60 mb-0"
           >
             &copy; {new Date().getFullYear()} LandlordReady. All rights
             reserved.

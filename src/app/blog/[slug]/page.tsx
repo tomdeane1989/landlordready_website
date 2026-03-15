@@ -77,19 +77,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <main className="py-12 md:py-16 px-6">
         <div className="max-w-6xl mx-auto">
           {/* Breadcrumbs */}
-          <nav className="mb-8 text-sm" style={{ color: 'var(--color-amber)' }}>
-            <Link href="/" className="no-underline hover:underline" style={{ color: 'var(--color-forest-green)' }}>
+          <nav className="mb-8 text-sm text-amber">
+            <Link href="/" className="text-forest-green no-underline hover:underline">
               Home
             </Link>
             <span className="mx-2">›</span>
-            <Link href="/blog" className="no-underline hover:underline" style={{ color: 'var(--color-forest-green)' }}>
+            <Link href="/blog" className="text-forest-green no-underline hover:underline">
               Blog
             </Link>
             <span className="mx-2">›</span>
             <Link
               href={`/blog/category/${frontmatter.category}`}
-              className="no-underline hover:underline"
-              style={{ color: 'var(--color-forest-green)' }}
+              className="text-forest-green no-underline hover:underline"
             >
               {frontmatter.category.replace(/-/g, ' ')}
             </Link>
@@ -102,45 +101,26 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               <header className="mb-12">
                 <Link
                   href={`/blog/category/${frontmatter.category}`}
-                  className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide no-underline mb-4"
-                  style={{
-                    backgroundColor: 'var(--color-forest-green)',
-                    color: 'var(--color-parchment)',
-                  }}
+                  className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide no-underline mb-4 bg-forest-green text-parchment"
                 >
                   {frontmatter.category.replace(/-/g, ' ')}
                 </Link>
-                <h1
-                  className="text-3xl md:text-4xl lg:text-[40px] font-bold mb-4 leading-tight"
-                  style={{
-                    fontFamily: 'var(--font-display)',
-                    color: 'var(--color-forest-green)',
-                  }}
-                >
+                <h1 className="text-3xl md:text-4xl lg:text-[40px] font-bold mb-4 leading-tight font-display text-forest-green">
                   {frontmatter.title}
                 </h1>
-                <p
-                  className="text-lg mb-6"
-                  style={{ color: 'var(--color-near-black)', opacity: 0.8 }}
-                >
+                <p className="text-lg mb-6 text-near-black/80">
                   {frontmatter.excerpt}
                 </p>
-                <div className="flex flex-wrap items-center gap-4 text-sm" style={{ color: 'var(--color-near-black)' }}>
+                <div className="flex flex-wrap items-center gap-4 text-sm text-near-black">
                   <div className="flex items-center gap-2">
-                    <div
-                      className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold"
-                      style={{
-                        backgroundColor: 'var(--color-forest-green)',
-                        color: 'var(--color-parchment)',
-                      }}
-                    >
+                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold bg-forest-green text-parchment">
                       {author.name.split(' ').map((n) => n[0]).join('')}
                     </div>
                     <span className="font-medium">{author.name}</span>
                   </div>
-                  <span style={{ opacity: 0.5 }}>·</span>
+                  <span className="opacity-50">·</span>
                   <time dateTime={frontmatter.publishedAt}>{publishedDate}</time>
-                  <span style={{ opacity: 0.5 }}>·</span>
+                  <span className="opacity-50">·</span>
                   <span>{readingTime}</span>
                 </div>
               </header>
@@ -150,17 +130,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
               {/* Tags */}
               {frontmatter.tags.length > 0 && (
-                <div className="mt-12 pt-8 border-t" style={{ borderColor: 'var(--color-pale-green)' }}>
+                <div className="mt-12 pt-8 border-t border-pale-green">
                   <div className="flex flex-wrap gap-2">
                     {frontmatter.tags.map((tag) => (
                       <Link
                         key={tag}
                         href={`/blog/tag/${tag}`}
-                        className="px-3 py-1 rounded-full text-xs no-underline"
-                        style={{
-                          backgroundColor: 'var(--color-pale-green)',
-                          color: 'var(--color-forest-green)',
-                        }}
+                        className="px-3 py-1 rounded-full text-xs no-underline bg-pale-green text-forest-green"
                       >
                         #{tag}
                       </Link>
@@ -170,60 +146,38 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               )}
 
               {/* Author bio */}
-              <div
-                className="mt-12 p-6 rounded-lg flex gap-4"
-                style={{ backgroundColor: 'var(--color-pale-green)' }}
-              >
-                <div
-                  className="w-14 h-14 rounded-full flex-shrink-0 flex items-center justify-center text-lg font-bold"
-                  style={{
-                    backgroundColor: 'var(--color-forest-green)',
-                    color: 'var(--color-parchment)',
-                  }}
-                >
+              <div className="mt-12 p-6 rounded-lg flex gap-4 bg-pale-green">
+                <div className="w-14 h-14 rounded-full flex-shrink-0 flex items-center justify-center text-lg font-bold bg-forest-green text-parchment">
                   {author.name.split(' ').map((n) => n[0]).join('')}
                 </div>
                 <div>
-                  <p className="font-bold mb-0" style={{ color: 'var(--color-forest-green)' }}>
+                  <p className="font-bold mb-0 text-forest-green">
                     {author.name}
                   </p>
-                  <p className="text-sm mb-2" style={{ color: 'var(--color-amber)' }}>
+                  <p className="text-sm mb-2 text-amber">
                     {author.role}
                   </p>
-                  <p className="text-sm mb-0" style={{ color: 'var(--color-near-black)' }}>
+                  <p className="text-sm mb-0 text-near-black">
                     {author.bio}
                   </p>
                 </div>
               </div>
 
               {/* CTA strip */}
-              <div
-                className="mt-12 p-8 rounded-lg text-center"
-                style={{ backgroundColor: 'var(--color-forest-green)' }}
-              >
-                <h3
-                  className="text-2xl font-bold mb-3"
-                  style={{
-                    fontFamily: 'var(--font-display)',
-                    color: 'var(--color-parchment)',
-                  }}
-                >
+              <div className="mt-12 p-8 rounded-lg text-center bg-forest-green">
+                <h3 className="text-2xl font-bold mb-3 font-display text-parchment">
                   Stay on top of your obligations
                 </h3>
-                <p className="mb-6" style={{ color: 'var(--color-pale-green)' }}>
+                <p className="mb-6 text-pale-green">
                   LandlordReady tracks deadlines, certificates, and regulatory changes for you.
                 </p>
                 <Link
                   href="#"
-                  className="inline-block px-8 py-3 rounded-lg font-semibold no-underline"
-                  style={{
-                    backgroundColor: 'var(--color-amber)',
-                    color: 'var(--color-near-black)',
-                  }}
+                  className="inline-block px-8 py-3 rounded-lg font-semibold no-underline bg-amber text-near-black"
                 >
                   Start your free trial
                 </Link>
-                <p className="mt-3 text-xs" style={{ color: 'var(--color-pale-green)', opacity: 0.7 }}>
+                <p className="mt-3 text-xs text-pale-green/70">
                   No credit card required. Cancel anytime.
                 </p>
               </div>
@@ -231,13 +185,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {/* Related articles */}
               {relatedPosts.length > 0 && (
                 <div className="mt-16">
-                  <h2
-                    className="text-2xl font-bold mb-8"
-                    style={{
-                      fontFamily: 'var(--font-display)',
-                      color: 'var(--color-forest-green)',
-                    }}
-                  >
+                  <h2 className="text-2xl font-bold mb-8 font-display text-forest-green">
                     Related articles
                   </h2>
                   <div className="grid sm:grid-cols-3 gap-6">
@@ -245,25 +193,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                       <Link
                         key={rp.frontmatter.slug}
                         href={`/blog/${rp.frontmatter.slug}`}
-                        className="block rounded-lg p-5 no-underline transition-shadow hover:shadow-md"
-                        style={{ backgroundColor: 'white' }}
+                        className="block rounded-lg p-5 no-underline transition-shadow hover:shadow-md bg-white"
                       >
-                        <p
-                          className="text-xs font-semibold uppercase tracking-wide mb-2"
-                          style={{ color: 'var(--color-amber)' }}
-                        >
+                        <p className="text-xs font-semibold uppercase tracking-wide mb-2 text-amber">
                           {rp.frontmatter.category.replace(/-/g, ' ')}
                         </p>
-                        <h3
-                          className="text-base font-bold mb-1"
-                          style={{
-                            fontFamily: 'var(--font-display)',
-                            color: 'var(--color-forest-green)',
-                          }}
-                        >
+                        <h3 className="text-base font-bold mb-1 font-display text-forest-green">
                           {rp.frontmatter.title}
                         </h3>
-                        <p className="text-xs" style={{ color: 'var(--color-amber)' }}>
+                        <p className="text-xs text-amber">
                           {rp.readingTime}
                         </p>
                       </Link>
@@ -273,8 +211,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               )}
 
               {/* Share prompt */}
-              <div className="mt-12 text-center py-8 border-t" style={{ borderColor: 'var(--color-pale-green)' }}>
-                <p className="text-lg font-medium" style={{ color: 'var(--color-forest-green)' }}>
+              <div className="mt-12 text-center py-8 border-t border-pale-green">
+                <p className="text-lg font-medium text-forest-green">
                   Found this useful? Share it with a fellow landlord.
                 </p>
               </div>
@@ -285,10 +223,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               <div className="sticky top-24">
                 {tocItems.length > 0 && (
                   <nav className="mb-8">
-                    <h4
-                      className="text-sm font-bold uppercase tracking-wide mb-4"
-                      style={{ color: 'var(--color-forest-green)' }}
-                    >
+                    <h4 className="text-sm font-bold uppercase tracking-wide mb-4 text-forest-green">
                       In this article
                     </h4>
                     <ul className="space-y-2">
@@ -299,8 +234,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                         >
                           <a
                             href={`#${item.id}`}
-                            className="text-sm no-underline hover:underline"
-                            style={{ color: 'var(--color-near-black)', opacity: 0.7 }}
+                            className="text-sm no-underline hover:underline text-near-black/70"
                           >
                             {item.text}
                           </a>
@@ -311,33 +245,22 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 )}
 
                 {/* Sidebar newsletter */}
-                <div
-                  className="rounded-lg p-5"
-                  style={{ backgroundColor: 'var(--color-pale-green)' }}
-                >
-                  <h4
-                    className="text-sm font-bold mb-2"
-                    style={{ color: 'var(--color-forest-green)' }}
-                  >
+                <div className="rounded-lg p-5 bg-pale-green">
+                  <h4 className="text-sm font-bold mb-2 text-forest-green">
                     Stay informed
                   </h4>
-                  <p className="text-xs mb-3" style={{ color: 'var(--color-near-black)' }}>
+                  <p className="text-xs mb-3 text-near-black">
                     Compliance updates in your inbox. No spam.
                   </p>
                   <form className="flex flex-col gap-2">
                     <input
                       type="email"
                       placeholder="Your email"
-                      className="px-3 py-2 rounded-md border text-sm"
-                      style={{ borderColor: 'var(--color-forest-green)' }}
+                      className="px-3 py-2 rounded-md border border-forest-green text-sm"
                     />
                     <button
                       type="submit"
-                      className="px-3 py-2 rounded-md text-sm font-semibold"
-                      style={{
-                        backgroundColor: 'var(--color-forest-green)',
-                        color: 'var(--color-parchment)',
-                      }}
+                      className="px-3 py-2 rounded-md text-sm font-semibold bg-forest-green text-parchment"
                     >
                       Subscribe
                     </button>

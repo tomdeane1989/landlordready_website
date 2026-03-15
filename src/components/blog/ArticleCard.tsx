@@ -18,39 +18,26 @@ export function ArticleCard({ post }: ArticleCardProps) {
   return (
     <Link
       href={`/blog/${frontmatter.slug}`}
-      className="group block rounded-lg border p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
-      style={{
-        backgroundColor: 'var(--color-white)',
-        borderColor: 'var(--color-pale-green)',
-      }}
+      className="group block rounded-lg border border-pale-green bg-white p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
     >
       <div className="mb-3">
         <CategoryBadge slug={frontmatter.category} />
       </div>
 
       <h3
-        className="mb-2 text-xl font-bold leading-snug transition-colors duration-200"
-        style={{
-          fontFamily: 'var(--font-display)',
-          color: 'var(--color-near-black)',
-        }}
+        className="mb-2 text-xl font-bold leading-snug font-display text-near-black transition-colors duration-200"
       >
         <span className="group-hover:underline">{frontmatter.title}</span>
       </h3>
 
       <p
-        className="mb-4 line-clamp-2 text-sm leading-relaxed"
-        style={{
-          fontFamily: 'var(--font-body)',
-          color: 'var(--color-near-black)',
-          opacity: 0.7,
-        }}
+        className="mb-4 line-clamp-2 text-sm leading-relaxed font-body text-near-black opacity-70"
       >
         {frontmatter.excerpt}
       </p>
 
-      <div className="flex items-center gap-3 text-sm" style={{ color: 'var(--color-near-black)', opacity: 0.5 }}>
-        <time dateTime={frontmatter.publishedAt} style={{ fontFamily: 'var(--font-body)' }}>
+      <div className="flex items-center gap-3 text-sm text-near-black opacity-50">
+        <time dateTime={frontmatter.publishedAt} className="font-body">
           {formattedDate}
         </time>
         <span aria-hidden="true">&middot;</span>
