@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import { getAllPosts } from '@/lib/content';
 import { categories } from '@/lib/categories';
 
-const BASE_URL = 'https://www.landlordready.co.uk';
+const BASE_URL = 'https://www.landlord-ready.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();

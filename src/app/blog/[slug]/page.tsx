@@ -64,13 +64,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         publishedAt={frontmatter.publishedAt}
         updatedAt={frontmatter.updatedAt}
         authorName={author.name}
-        url={`https://www.landlordready.co.uk/blog/${frontmatter.slug}`}
+        url={`https://www.landlord-ready.com/blog/${frontmatter.slug}`}
       />
       <BreadcrumbJsonLd
         items={[
-          { name: 'Home', url: 'https://www.landlordready.co.uk' },
-          { name: 'Blog', url: 'https://www.landlordready.co.uk/blog' },
-          { name: frontmatter.title, url: `https://www.landlordready.co.uk/blog/${frontmatter.slug}` },
+          { name: 'Home', url: 'https://www.landlord-ready.com' },
+          { name: 'Blog', url: 'https://www.landlord-ready.com/blog' },
+          { name: frontmatter.title, url: `https://www.landlord-ready.com/blog/${frontmatter.slug}` },
         ]}
       />
 

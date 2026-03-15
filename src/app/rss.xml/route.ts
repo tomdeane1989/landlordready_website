@@ -1,6 +1,6 @@
 import { getAllPosts } from '@/lib/content';
 
-const BASE_URL = 'https://www.landlordready.co.uk';
+const BASE_URL = 'https://www.landlord-ready.com';
 
 export async function GET() {
   const posts = getAllPosts();

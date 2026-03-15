@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://www.landlordready.co.uk/sitemap.xml',
+    sitemap: 'https://www.landlord-ready.com/sitemap.xml',
   };
 }
