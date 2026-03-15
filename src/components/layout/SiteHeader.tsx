@@ -37,17 +37,15 @@ export function SiteHeader() {
     >
       <nav className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-4">
         {/* Logo */}
-        <Link href="/" className="no-underline flex items-center gap-2">
+        <Link href="/" className="no-underline">
           <Image
-            src="/images/logos/icon-mark.png"
-            alt=""
-            width={32}
-            height={32}
-            className="h-8 w-auto"
+            src="/images/logos/logo-full-light.png"
+            alt="LandlordReady"
+            width={240}
+            height={48}
+            className="h-10 w-auto"
+            priority
           />
-          <span className="text-2xl font-bold font-display text-forest-green">
-            LandlordReady
-          </span>
         </Link>
 
         {/* Desktop nav */}

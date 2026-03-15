@@ -34,21 +34,15 @@ export function SiteFooter() {
         <div className="flex flex-col gap-12 md:flex-row md:justify-between">
           {/* Logo */}
           <div>
-            <Link href="/" className="no-underline flex items-center gap-2">
+            <Link href="/" className="no-underline">
               <Image
-                src="/images/logos/icon-mark.png"
-                alt=""
-                width={32}
-                height={32}
-                className="h-8 w-auto"
+                src="/images/logos/logo-full-light.png"
+                alt="LandlordReady"
+                width={200}
+                height={40}
+                className="h-10 w-auto"
               />
-              <span className="text-2xl font-bold font-display text-forest-green">
-                LandlordReady
-              </span>
             </Link>
-            <p className="mt-2 text-sm text-near-black opacity-60">
-              10-minute compliance. Every week.
-            </p>
           </div>
 
           {/* Nav columns */}
