@@ -1,0 +1,16 @@
+[
+  {
+    "id": "landlordready-team",
+    "name": "LandlordReady Team",
+    "role": "Compliance Experts",
+    "bio": "The LandlordReady team combines decades of experience in property law, landlord compliance, and housing regulation. We're on a mission to help every private landlord in England stay compliant with confidence.",
+    "avatar": "/images/authors/team-avatar.png"
+  },
+  {
+    "id": "sarah-mitchell",
+    "name": "Sarah Mitchell",
+    "role": "Head of Compliance",
+    "bio": "Sarah has spent 15 years advising private landlords on housing regulation. She holds a degree in Housing Law from the University of Westminster and is a member of the Chartered Institute of Housing.",
+    "avatar": "/images/authors/sarah-mitchell.png"
+  }
+]
