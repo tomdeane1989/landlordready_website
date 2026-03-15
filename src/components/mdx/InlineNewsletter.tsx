@@ -17,7 +17,7 @@ export function InlineNewsletter() {
       const res = await fetch("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, source: "inline-newsletter" }),
       });
 
       if (!res.ok) throw new Error("Subscription failed");

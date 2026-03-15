@@ -1,8 +1,12 @@
 import { NextResponse } from 'next/server';
 
+const SHEETS_WEBHOOK_URL =
+  process.env.GOOGLE_SHEETS_WEBHOOK_URL ||
+  'https://script.google.com/macros/s/AKfycbypwSgfKD-_R-xfr6KpnTSE32OplCd82DJ4bsRoJ6VnK89rDhC6Nqzxxgi49Gpbjok/exec';
+
 export async function POST(request: Request) {
   try {
-    const { email } = await request.json();
+    const { email, source = 'unknown' } = await request.json();
 
     if (!email || !email.includes('@')) {
       return NextResponse.json(
@@ -11,17 +15,19 @@ export async function POST(request: Request) {
       );
     }
 
-    // When RESEND_API_KEY is configured, send via Resend
-    if (process.env.RESEND_API_KEY) {
-      const { resend } = await import('@/lib/resend');
-      await resend.contacts.create({
-        email,
-        audienceId: process.env.RESEND_AUDIENCE_ID || '',
-      });
+    const res = await fetch(SHEETS_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, source }),
+    });
+
+    if (!res.ok) {
+      throw new Error(`Sheets webhook returned ${res.status}`);
     }
 
     return NextResponse.json({ success: true });
-  } catch {
+  } catch (err) {
+    console.error('Newsletter signup error:', err);
     return NextResponse.json(
       { error: 'Something went wrong. Please try again.' },
       { status: 500 }

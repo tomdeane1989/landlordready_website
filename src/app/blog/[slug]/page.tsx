@@ -6,6 +6,7 @@ import { compileMDXContent } from '@/lib/mdx';
 import { extractToc } from '@/lib/toc';
 import { ArticleJsonLd } from '@/components/seo/ArticleJsonLd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { NewsletterForm } from '@/components/NewsletterForm';
 import authors from '../../../../content/authors/authors.json';
 
 interface BlogPostPageProps {
@@ -246,25 +247,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
                 {/* Sidebar newsletter */}
                 <div className="rounded-lg p-5 bg-pale-green">
-                  <h4 className="text-sm font-bold mb-2 text-forest-green">
-                    Stay informed
-                  </h4>
-                  <p className="text-xs mb-3 text-near-black">
-                    Compliance updates in your inbox. No spam.
-                  </p>
-                  <form className="flex flex-col gap-2">
-                    <input
-                      type="email"
-                      placeholder="Your email"
-                      className="px-3 py-2 rounded-md border border-forest-green text-sm"
-                    />
-                    <button
-                      type="submit"
-                      className="px-3 py-2 rounded-md text-sm font-semibold bg-forest-green text-parchment"
-                    >
-                      Subscribe
-                    </button>
-                  </form>
+                  <NewsletterForm source="blog-post-sidebar" compact />
                 </div>
               </div>
             </aside>

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { getAllPosts, getFeaturedPost } from '@/lib/content';
 import { categories } from '@/lib/categories';
+import { NewsletterForm } from '@/components/NewsletterForm';
 
 export const metadata: Metadata = {
   title: 'Blog — Landlord Compliance Guides & News',
@@ -100,26 +101,11 @@ export default function BlogIndexPage() {
           <aside className="hidden lg:block">
             {/* Newsletter signup */}
             <div className="rounded-lg p-6 mb-8 bg-pale-green">
-              <h3 className="text-lg font-bold mb-2 text-forest-green">
-                Stay informed
-              </h3>
-              <p className="text-sm mb-4 text-near-black">
-                Get landlord compliance updates straight to your inbox. No spam, just
-                the changes that affect you.
-              </p>
-              <form className="flex flex-col gap-2">
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="px-4 py-2 rounded-md border border-forest-green text-sm"
-                />
-                <button
-                  type="submit"
-                  className="px-4 py-2 rounded-md text-sm font-semibold bg-forest-green text-parchment"
-                >
-                  Subscribe
-                </button>
-              </form>
+              <NewsletterForm
+                source="blog-index-sidebar"
+                heading="Stay informed"
+                description="Get landlord compliance updates straight to your inbox. No spam, just the changes that affect you."
+              />
             </div>
 
             {/* Categories */}
