@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const footerColumns = [
   {
@@ -31,14 +32,23 @@ export function SiteFooter() {
     >
       <div className="mx-auto max-w-[1200px] px-6 py-16">
         <div className="flex flex-col gap-12 md:flex-row md:justify-between">
-          {/* Wordmark */}
+          {/* Logo */}
           <div>
-            <Link
-              href="/"
-              className="text-2xl font-bold no-underline font-display text-forest-green"
-            >
-              LandlordReady
+            <Link href="/" className="no-underline flex items-center gap-2">
+              <Image
+                src="/images/logos/icon-mark.png"
+                alt=""
+                width={32}
+                height={32}
+                className="h-8 w-auto"
+              />
+              <span className="text-2xl font-bold font-display text-forest-green">
+                LandlordReady
+              </span>
             </Link>
+            <p className="mt-2 text-sm text-near-black opacity-60">
+              10-minute compliance. Every week.
+            </p>
           </div>
 
           {/* Nav columns */}

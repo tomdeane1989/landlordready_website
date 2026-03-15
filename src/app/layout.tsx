@@ -33,10 +33,26 @@ export const metadata: Metadata = {
   description:
     "Stay compliant with the Renters' Rights Act 2025. LandlordReady helps private landlords track obligations, deadlines, and certificates — so nothing slips through the cracks.",
   metadataBase: new URL('https://www.landlord-ready.com'),
+  icons: {
+    icon: '/images/logos/icon-mark.png',
+    apple: '/images/logos/icon-mark-light.png',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_GB',
     siteName: 'LandlordReady',
+    images: [
+      {
+        url: '/images/logos/logo-full-light.png',
+        width: 1200,
+        height: 630,
+        alt: 'LandlordReady — 10-minute compliance. Every week.',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/images/logos/logo-full-light.png'],
   },
 };
 

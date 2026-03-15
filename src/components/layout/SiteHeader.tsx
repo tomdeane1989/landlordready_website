@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const navLinks = [
   { href: "/features", label: "Features" },
@@ -35,12 +36,18 @@ export function SiteHeader() {
       }`}
     >
       <nav className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-4">
-        {/* Wordmark */}
-        <Link
-          href="/"
-          className="text-2xl font-bold no-underline font-display text-forest-green"
-        >
-          LandlordReady
+        {/* Logo */}
+        <Link href="/" className="no-underline flex items-center gap-2">
+          <Image
+            src="/images/logos/icon-mark.png"
+            alt=""
+            width={32}
+            height={32}
+            className="h-8 w-auto"
+          />
+          <span className="text-2xl font-bold font-display text-forest-green">
+            LandlordReady
+          </span>
         </Link>
 
         {/* Desktop nav */}
