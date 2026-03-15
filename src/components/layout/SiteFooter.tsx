@@ -27,8 +27,7 @@ const footerColumns = [
 export function SiteFooter() {
   return (
     <footer
-      className="w-full border-t bg-parchment"
-      style={{ borderColor: "rgba(26, 61, 43, 0.2)" }}
+      className="w-full border-t border-forest-green/20 bg-parchment"
     >
       <div className="mx-auto max-w-[1200px] px-6 py-16">
         <div className="flex flex-col gap-12 md:flex-row md:justify-between">
@@ -70,8 +69,7 @@ export function SiteFooter() {
 
         {/* Copyright */}
         <div
-          className="mt-12 border-t pt-8"
-          style={{ borderColor: "rgba(26, 61, 43, 0.15)" }}
+          className="mt-12 border-t border-forest-green/15 pt-8"
         >
           <p
             className="text-xs font-mono text-near-black opacity-60 mb-0"
