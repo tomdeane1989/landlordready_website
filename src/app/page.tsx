@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { getRecentPosts } from '@/lib/content';
+import { SignupButton } from '@/components/SignupButton';
 
 function CountdownDays() {
   const deadline = new Date('2026-05-01');
@@ -30,12 +31,11 @@ export default function HomePage() {
             and certificate — so nothing slips through the cracks.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="#"
-              className="inline-block px-8 py-4 rounded-lg font-semibold text-lg no-underline transition-opacity hover:opacity-90 bg-amber text-near-black"
+            <SignupButton
+              className="inline-block px-8 py-4 rounded-lg font-semibold text-lg transition-opacity hover:opacity-90 bg-amber text-near-black"
             >
               Get compliant — free for 30 days
-            </Link>
+            </SignupButton>
             <Link
               href="/features"
               className="inline-block px-8 py-4 rounded-lg font-semibold text-lg no-underline border-2 border-parchment text-parchment transition-opacity hover:opacity-80"
@@ -232,12 +232,11 @@ export default function HomePage() {
             Phase 1 of the Renters&apos; Rights Act takes effect on 1 May 2026.
             Get your properties compliant before the deadline.
           </p>
-          <Link
-            href="#"
-            className="inline-block px-8 py-4 rounded-lg font-semibold text-lg no-underline transition-opacity hover:opacity-90 bg-amber text-near-black"
+          <SignupButton
+            className="inline-block px-8 py-4 rounded-lg font-semibold text-lg transition-opacity hover:opacity-90 bg-amber text-near-black"
           >
             Get compliant — free for 30 days
-          </Link>
+          </SignupButton>
           <p className="mt-4 text-sm text-pale-green/70">
             No credit card required. Cancel anytime.
           </p>

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { SignupButton } from '@/components/SignupButton';
 
 export const metadata: Metadata = {
   title: 'About LandlordReady — Our Mission',
@@ -200,12 +201,11 @@ export default function AboutPage() {
             Join thousands of private landlords who use LandlordReady to stay on
             top of their obligations. Start your free trial today.
           </p>
-          <Link
-            href="#"
-            className="inline-block px-8 py-4 rounded-lg font-semibold text-lg no-underline transition-opacity hover:opacity-90 bg-amber text-near-black"
+          <SignupButton
+            className="inline-block px-8 py-4 rounded-lg font-semibold text-lg transition-opacity hover:opacity-90 bg-amber text-near-black"
           >
             Get compliant — free for 30 days
-          </Link>
+          </SignupButton>
           <p className="mt-4 text-sm text-pale-green/70">
             No credit card required. Cancel anytime.
           </p>

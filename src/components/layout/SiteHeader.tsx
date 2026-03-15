@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { SignupModal } from "@/components/SignupModal";
 
 const navLinks = [
   { href: "/features", label: "Features" },
@@ -14,6 +15,7 @@ const navLinks = [
 export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [signupOpen, setSignupOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 4);
@@ -23,102 +25,112 @@ export function SiteHeader() {
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    if (!signupOpen) {
+      document.body.style.overflow = mobileOpen ? "hidden" : "";
+    }
     return () => {
       document.body.style.overflow = "";
     };
-  }, [mobileOpen]);
+  }, [mobileOpen, signupOpen]);
 
   return (
-    <header
-      className={`sticky top-0 z-50 w-full bg-parchment transition-shadow duration-200 ${
-        scrolled ? "shadow-md" : ""
-      }`}
-    >
-      <nav className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-4">
-        {/* Logo */}
-        <Link href="/" className="no-underline">
-          <Image
-            src="/images/logos/logo-full-light.png"
-            alt="LandlordReady"
-            width={240}
-            height={48}
-            className="h-10 w-auto"
-            priority
-          />
-        </Link>
+    <>
+      <header
+        className={`sticky top-0 z-50 w-full bg-parchment transition-shadow duration-200 ${
+          scrolled ? "shadow-md" : ""
+        }`}
+      >
+        <nav className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-4">
+          {/* Logo */}
+          <Link href="/" className="no-underline">
+            <Image
+              src="/images/logos/logo-full-light.png"
+              alt="LandlordReady"
+              width={240}
+              height={48}
+              className="h-10 w-auto"
+              priority
+            />
+          </Link>
 
-        {/* Desktop nav */}
-        <ul className="hidden items-center gap-8 md:flex">
-          {navLinks.map(({ href, label }) => (
-            <li key={href}>
+          {/* Desktop nav */}
+          <ul className="hidden items-center gap-8 md:flex">
+            {navLinks.map(({ href, label }) => (
+              <li key={href}>
+                <Link
+                  href={href}
+                  className="text-sm font-medium no-underline transition-opacity hover:opacity-70 font-body text-forest-green"
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          {/* Desktop CTA */}
+          <button
+            type="button"
+            onClick={() => setSignupOpen(true)}
+            className="hidden rounded-md px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90 md:inline-block font-body bg-forest-green"
+          >
+            Get compliant &ndash; free for 30 days
+          </button>
+
+          {/* Mobile hamburger */}
+          <button
+            type="button"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            className="flex flex-col justify-center gap-1.5 md:hidden"
+            onClick={() => setMobileOpen((prev) => !prev)}
+          >
+            <span
+              className={`block h-0.5 w-6 bg-forest-green transition-transform duration-200 ${
+                mobileOpen ? "translate-y-2 rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`block h-0.5 w-6 bg-forest-green transition-opacity duration-200 ${
+                mobileOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`block h-0.5 w-6 bg-forest-green transition-transform duration-200 ${
+                mobileOpen ? "-translate-y-2 -rotate-45" : ""
+              }`}
+            />
+          </button>
+        </nav>
+
+        {/* Mobile menu */}
+        {mobileOpen && (
+          <div
+            className="flex flex-col gap-6 px-6 pb-8 pt-2 md:hidden bg-parchment"
+          >
+            {navLinks.map(({ href, label }) => (
               <Link
+                key={href}
                 href={href}
-                className="text-sm font-medium no-underline transition-opacity hover:opacity-70 font-body text-forest-green"
+                onClick={() => setMobileOpen(false)}
+                className="text-lg font-medium no-underline font-body text-forest-green"
               >
                 {label}
               </Link>
-            </li>
-          ))}
-        </ul>
-
-        {/* Desktop CTA */}
-        <Link
-          href="/signup"
-          className="hidden rounded-md px-5 py-2.5 text-sm font-semibold text-white no-underline transition-opacity hover:opacity-90 md:inline-block font-body bg-forest-green"
-        >
-          Get compliant &ndash; free for 30 days
-        </Link>
-
-        {/* Mobile hamburger */}
-        <button
-          type="button"
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          className="flex flex-col justify-center gap-1.5 md:hidden"
-          onClick={() => setMobileOpen((prev) => !prev)}
-        >
-          <span
-            className={`block h-0.5 w-6 bg-forest-green transition-transform duration-200 ${
-              mobileOpen ? "translate-y-2 rotate-45" : ""
-            }`}
-          />
-          <span
-            className={`block h-0.5 w-6 bg-forest-green transition-opacity duration-200 ${
-              mobileOpen ? "opacity-0" : ""
-            }`}
-          />
-          <span
-            className={`block h-0.5 w-6 bg-forest-green transition-transform duration-200 ${
-              mobileOpen ? "-translate-y-2 -rotate-45" : ""
-            }`}
-          />
-        </button>
-      </nav>
-
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <div
-          className="flex flex-col gap-6 px-6 pb-8 pt-2 md:hidden bg-parchment"
-        >
-          {navLinks.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              onClick={() => setMobileOpen(false)}
-              className="text-lg font-medium no-underline font-body text-forest-green"
+            ))}
+            <button
+              type="button"
+              onClick={() => {
+                setMobileOpen(false);
+                setSignupOpen(true);
+              }}
+              className="mt-2 rounded-md px-5 py-3 text-center text-sm font-semibold text-white transition-opacity hover:opacity-90 font-body bg-forest-green"
             >
-              {label}
-            </Link>
-          ))}
-          <Link
-            href="/signup"
-            onClick={() => setMobileOpen(false)}
-            className="mt-2 rounded-md px-5 py-3 text-center text-sm font-semibold text-white no-underline transition-opacity hover:opacity-90 font-body bg-forest-green"
-          >
-            Get compliant &ndash; free for 30 days
-          </Link>
-        </div>
-      )}
-    </header>
+              Get compliant &ndash; free for 30 days
+            </button>
+          </div>
+        )}
+      </header>
+
+      <SignupModal open={signupOpen} onClose={() => setSignupOpen(false)} />
+    </>
   );
 }

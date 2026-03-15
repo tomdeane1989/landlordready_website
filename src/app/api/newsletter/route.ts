@@ -6,7 +6,7 @@ const SHEETS_WEBHOOK_URL =
 
 export async function POST(request: Request) {
   try {
-    const { email, source = 'unknown' } = await request.json();
+    const { email, phone, companyName, source = 'unknown' } = await request.json();
 
     if (!email || !email.includes('@')) {
       return NextResponse.json(
@@ -18,7 +18,7 @@ export async function POST(request: Request) {
     const res = await fetch(SHEETS_WEBHOOK_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, source }),
+      body: JSON.stringify({ email, phone: phone || '', companyName: companyName || '', source }),
     });
 
     if (!res.ok) {
