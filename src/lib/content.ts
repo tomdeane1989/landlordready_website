@@ -52,16 +52,22 @@ export function getPostBySlug(slug: string): Post | null {
   };
 }
 
+let cachedPosts: Post[] | null = null;
+
 export function getAllPosts(): Post[] {
+  if (cachedPosts) return cachedPosts;
+
   const slugs = getPostSlugs();
-  return slugs
+  cachedPosts = slugs
     .map((slug) => getPostBySlug(slug))
     .filter((post): post is Post => post !== null)
+    .filter((post) => new Date(post.frontmatter.publishedAt) <= new Date())
     .sort(
       (a, b) =>
         new Date(b.frontmatter.publishedAt).getTime() -
         new Date(a.frontmatter.publishedAt).getTime()
     );
+  return cachedPosts;
 }
 
 export function getPostsByCategory(category: string): Post[] {
