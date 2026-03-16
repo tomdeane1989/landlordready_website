@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
+export const revalidate = false;
+
 type FeatureStep = {
   step: number;
   title: string;
@@ -239,6 +241,9 @@ export async function generateMetadata({
   return {
     title: `${feature.name} — LandlordReady`,
     description: feature.description[0].slice(0, 160),
+    alternates: {
+      canonical: `/features/${feature.slug}`,
+    },
   };
 }
 

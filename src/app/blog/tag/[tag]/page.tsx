@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getPostsByTag, getAllTags } from '@/lib/content';
 
+export const revalidate = false;
+
 interface TagPageProps {
   params: Promise<{ tag: string }>;
 }
@@ -15,6 +17,9 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
   return {
     title: `#${tag} — Landlord Compliance Articles`,
     description: `Articles tagged with "${tag}" — expert guides for private landlords.`,
+    alternates: {
+      canonical: `/blog/tag/${tag}`,
+    },
   };
 }
 

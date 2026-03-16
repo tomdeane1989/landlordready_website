@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { getAllPosts } from '@/lib/content';
+import { getAllPosts, getAllTags } from '@/lib/content';
 import { categories } from '@/lib/categories';
 
 const BASE_URL = 'https://www.landlord-ready.com';
@@ -31,5 +31,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...postPages, ...categoryPages];
+  const tagPages: MetadataRoute.Sitemap = getAllTags().map((tag) => ({
+    url: `${BASE_URL}/blog/tag/${tag}`,
+    changeFrequency: 'weekly',
+    priority: 0.5,
+  }));
+
+  return [...staticPages, ...postPages, ...categoryPages, ...tagPages];
 }

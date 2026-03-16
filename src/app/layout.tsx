@@ -3,6 +3,7 @@ import Script from 'next/script';
 import { Playfair_Display, DM_Sans, DM_Mono } from 'next/font/google';
 import { SiteHeader } from '@/components/layout/SiteHeader';
 import { SiteFooter } from '@/components/layout/SiteFooter';
+import { OrganizationJsonLd } from '@/components/seo/OrganizationJsonLd';
 import './globals.css';
 
 const GA_ID = 'G-54BMQ9PS3Q';
@@ -84,6 +85,7 @@ export default function RootLayout({
         className={`${playfairDisplay.variable} ${dmSans.variable} ${dmMono.variable} antialiased`}
       >
         <SiteHeader />
+        <OrganizationJsonLd />
         {children}
         <SiteFooter />
       </body>

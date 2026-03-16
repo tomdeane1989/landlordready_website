@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation';
 import { getPostsByCategory } from '@/lib/content';
 import { categories, getCategoryBySlug } from '@/lib/categories';
 
+export const revalidate = false;
+
 interface CategoryPageProps {
   params: Promise<{ category: string }>;
 }
@@ -19,6 +21,9 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   return {
     title: `${cat.name} — Landlord Guides`,
     description: cat.description,
+    alternates: {
+      canonical: `/blog/category/${category}`,
+    },
   };
 }
 

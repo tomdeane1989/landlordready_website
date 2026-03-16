@@ -4,6 +4,9 @@ import {
   FAQAccordion,
   FAQItem,
 } from '@/components/mdx/FAQAccordion';
+import { SignupButton } from '@/components/SignupButton';
+
+export const revalidate = false;
 
 export const metadata: Metadata = {
   title: 'Pricing — Plans for Every Landlord',
@@ -144,12 +147,11 @@ export default function PricingPage() {
               ))}
             </ul>
 
-            <a
-              href="#"
+            <SignupButton
               className="block w-full text-center rounded-lg py-3 px-6 font-semibold text-sm no-underline transition-opacity hover:opacity-90 bg-forest-green text-parchment font-body"
             >
               Start free for 7 days
-            </a>
+            </SignupButton>
           </div>
 
           {/* Portfolio card */}
@@ -191,12 +193,11 @@ export default function PricingPage() {
               ))}
             </ul>
 
-            <a
-              href="#"
+            <SignupButton
               className="block w-full text-center rounded-lg py-3 px-6 font-semibold text-sm no-underline transition-opacity hover:opacity-90 bg-forest-green text-parchment font-body"
             >
               Start free for 7 days
-            </a>
+            </SignupButton>
           </div>
         </div>
 
