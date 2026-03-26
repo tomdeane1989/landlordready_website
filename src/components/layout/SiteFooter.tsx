@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { CookieSettingsButton } from "@/components/CookieSettingsButton";
 
 const footerColumns = [
   {
@@ -21,6 +22,7 @@ const footerColumns = [
     links: [
       { href: "/privacy", label: "Privacy" },
       { href: "/terms", label: "Terms" },
+      { href: "/cookies", label: "Cookies" },
     ],
   },
 ] as const;
@@ -65,6 +67,11 @@ export function SiteFooter() {
                       </Link>
                     </li>
                   ))}
+                  {col.title === "Legal" && (
+                    <li>
+                      <CookieSettingsButton />
+                    </li>
+                  )}
                 </ul>
               </div>
             ))}

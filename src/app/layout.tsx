@@ -3,10 +3,10 @@ import Script from 'next/script';
 import { Playfair_Display, DM_Sans, DM_Mono } from 'next/font/google';
 import { SiteHeader } from '@/components/layout/SiteHeader';
 import { SiteFooter } from '@/components/layout/SiteFooter';
+import { CookieConsent } from '@/components/CookieConsent';
 import { OrganizationJsonLd } from '@/components/seo/OrganizationJsonLd';
+import { GA_ID } from '@/lib/analytics';
 import './globals.css';
-
-const GA_ID = 'G-54BMQ9PS3Q';
 
 const playfairDisplay = Playfair_Display({
   variable: '--font-playfair-display',
@@ -68,17 +68,29 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Google Consent Mode v2 — must run synchronously before GA4 loads */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('consent', 'default', {
+                analytics_storage: 'denied',
+                functionality_storage: 'denied',
+                ad_storage: 'denied',
+                ad_user_data: 'denied',
+                ad_personalization: 'denied',
+                wait_for_update: 500,
+              });
+            `,
+          }}
+        />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
           strategy="afterInteractive"
         />
         <Script id="gtag-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_ID}');
-          `}
+          {`gtag('js', new Date()); gtag('config', '${GA_ID}');`}
         </Script>
       </head>
       <body
@@ -88,6 +100,7 @@ export default function RootLayout({
         <OrganizationJsonLd />
         {children}
         <SiteFooter />
+        <CookieConsent />
       </body>
     </html>
   );
