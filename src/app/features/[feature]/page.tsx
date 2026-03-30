@@ -18,6 +18,8 @@ type FeatureData = {
   benefits: string[];
   howItWorks: FeatureStep[];
   ctaAction: string;
+  seoTitle?: string;
+  seoDescription?: string;
 };
 
 const features: FeatureData[] = [
@@ -174,6 +176,8 @@ const features: FeatureData[] = [
       },
     ],
     ctaAction: 'organising your documents',
+    seoTitle: 'Storing Tenancy Documents Securely | Landlord Document Storage — LandlordReady',
+    seoDescription: 'Store tenancy documents securely in one place. Upload gas safety certs, EICRs, tenancy agreements, and deposit certificates with encrypted cloud storage. Organised by property, accessible anytime.',
   },
   {
     slug: 'property-portfolio',
@@ -239,8 +243,8 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${feature.name} — LandlordReady`,
-    description: feature.description[0].slice(0, 160),
+    title: feature.seoTitle ?? `${feature.name} — LandlordReady`,
+    description: feature.seoDescription ?? feature.description[0].slice(0, 160),
     alternates: {
       canonical: `/features/${feature.slug}`,
     },
