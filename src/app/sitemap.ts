@@ -13,9 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/about`, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/features`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/blog`, changeFrequency: 'daily', priority: 0.9 },
-    { url: `${BASE_URL}/newsletter`, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/privacy`, changeFrequency: 'yearly', priority: 0.3 },
-    { url: `${BASE_URL}/terms`, changeFrequency: 'yearly', priority: 0.3 },
   ];
 
   const postPages: MetadataRoute.Sitemap = posts.map((post) => ({

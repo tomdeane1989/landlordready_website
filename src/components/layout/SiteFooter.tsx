@@ -14,14 +14,12 @@ const footerColumns = [
     title: "Resources",
     links: [
       { href: "/blog", label: "Blog" },
-      { href: "/newsletter", label: "Newsletter" },
     ],
   },
   {
     title: "Legal",
     links: [
       { href: "/privacy", label: "Privacy" },
-      { href: "/terms", label: "Terms" },
       { href: "/cookies", label: "Cookies" },
     ],
   },
