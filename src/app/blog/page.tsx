@@ -1,18 +1,30 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { getAllPosts, getFeaturedPost } from '@/lib/content';
+import { getAllPosts } from '@/lib/content';
 import { categories } from '@/lib/categories';
 import { NewsletterForm } from '@/components/NewsletterForm';
+
+export const revalidate = false;
 
 export const metadata: Metadata = {
   title: 'Blog — Landlord Compliance Guides & News',
   description:
     "Expert guides on the Renters' Rights Act, safety certificates, rent increases, and more. Everything private landlords need to stay compliant.",
+  alternates: {
+    canonical: '/blog',
+  },
+  openGraph: {
+    title: 'Blog — Landlord Compliance Guides & News',
+    description:
+      "Expert guides on the Renters' Rights Act, safety certificates, rent increases, and more. Everything private landlords need to stay compliant.",
+    url: 'https://www.landlord-ready.com/blog',
+    type: 'website',
+  },
 };
 
 export default function BlogIndexPage() {
   const allPosts = getAllPosts();
-  const featuredPost = getFeaturedPost();
+  const featuredPost = allPosts.find((p) => p.frontmatter.featured);
   const regularPosts = allPosts.filter((p) => !p.frontmatter.featured);
 
   return (

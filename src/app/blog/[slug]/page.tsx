@@ -9,6 +9,8 @@ import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { NewsletterForm } from '@/components/NewsletterForm';
 import authors from '../../../../content/authors/authors.json';
 
+export const revalidate = false;
+
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
 }
@@ -30,6 +32,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     openGraph: {
       title: frontmatter.seoTitle || frontmatter.title,
       description: frontmatter.seoDescription || frontmatter.excerpt,
+      url: `https://www.landlord-ready.com/blog/${frontmatter.slug}`,
       type: 'article',
       publishedTime: frontmatter.publishedAt,
       modifiedTime: frontmatter.updatedAt,
