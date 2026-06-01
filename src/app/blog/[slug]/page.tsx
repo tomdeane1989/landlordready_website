@@ -7,6 +7,7 @@ import { extractToc } from '@/lib/toc';
 import { ArticleJsonLd } from '@/components/seo/ArticleJsonLd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { NewsletterForm } from '@/components/NewsletterForm';
+import { BlogHeroImage } from '@/components/blog/BlogHeroImage';
 import authors from '../../../../content/authors/authors.json';
 
 export const revalidate = false;
@@ -26,6 +27,8 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   if (!post) return {};
 
   const { frontmatter } = post;
+  const ogImage = frontmatter.image || frontmatter.ogImage;
+
   return {
     title: frontmatter.seoTitle || frontmatter.title,
     description: frontmatter.seoDescription || frontmatter.excerpt,
@@ -37,6 +40,14 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       publishedTime: frontmatter.publishedAt,
       modifiedTime: frontmatter.updatedAt,
       authors: [frontmatter.author],
+      ...(ogImage && {
+        images: [
+          {
+            url: ogImage.startsWith('/') ? `https://www.landlord-ready.com${ogImage}` : ogImage,
+            alt: frontmatter.imageAlt || frontmatter.title,
+          },
+        ],
+      }),
     },
     alternates: {
       canonical: `/blog/${frontmatter.slug}`,
@@ -128,6 +139,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   <span>{readingTime}</span>
                 </div>
               </header>
+
+              {/* Hero image */}
+              {frontmatter.image && (
+                <BlogHeroImage
+                  src={frontmatter.image}
+                  alt={frontmatter.imageAlt || frontmatter.title}
+                  credit={frontmatter.imageCredit}
+                />
+              )}
 
               {/* Article body */}
               <div className="prose">{mdxContent}</div>

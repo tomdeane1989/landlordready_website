@@ -19,6 +19,9 @@ export interface PostFrontmatter {
   seoTitle?: string;
   seoDescription?: string;
   ogImage?: string;
+  image?: string;
+  imageAlt?: string;
+  imageCredit?: string;
 }
 
 export interface Post {
