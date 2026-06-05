@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local SEO/analytics reports — must never deploy publicly
+/review.html
+/*-report.html
