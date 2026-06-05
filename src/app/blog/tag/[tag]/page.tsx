@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getPostsByTag, getAllTags } from '@/lib/content';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 
 export const revalidate = false;
+
+const SITE_URL = 'https://www.landlord-ready.com';
 
 interface TagPageProps {
   params: Promise<{ tag: string }>;
@@ -29,6 +32,13 @@ export default async function TagPage({ params }: TagPageProps) {
 
   return (
     <main className="py-12 md:py-16 px-6">
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: SITE_URL },
+          { name: 'Blog', url: `${SITE_URL}/blog` },
+          { name: `#${tag}`, url: `${SITE_URL}/blog/tag/${tag}` },
+        ]}
+      />
       <div className="max-w-5xl mx-auto">
         <nav className="mb-8 text-sm">
           <Link href="/" className="text-forest-green no-underline hover:underline">Home</Link>

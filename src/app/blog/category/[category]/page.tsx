@@ -2,16 +2,19 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getPostsByCategory } from '@/lib/content';
-import { categories, getCategoryBySlug } from '@/lib/categories';
+import { getAllCategories, getCategoryBySlug } from '@/lib/categories';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 
 export const revalidate = false;
+
+const SITE_URL = 'https://www.landlord-ready.com';
 
 interface CategoryPageProps {
   params: Promise<{ category: string }>;
 }
 
 export function generateStaticParams() {
-  return categories.map((cat) => ({ category: cat.slug }));
+  return getAllCategories().map((cat) => ({ category: cat.slug }));
 }
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
@@ -36,6 +39,13 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
   return (
     <main className="py-12 md:py-16 px-6">
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: SITE_URL },
+          { name: 'Blog', url: `${SITE_URL}/blog` },
+          { name: cat.name, url: `${SITE_URL}/blog/category/${category}` },
+        ]}
+      />
       <div className="max-w-5xl mx-auto">
         <nav className="mb-8 text-sm">
           <Link href="/" className="text-forest-green no-underline hover:underline">Home</Link>

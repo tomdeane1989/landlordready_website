@@ -8,10 +8,19 @@ import { SignupButton } from '@/components/SignupButton';
 
 export const revalidate = false;
 
+const pricingDescription =
+  'Simple, transparent pricing for LandlordReady. Solo and Portfolio plans with a 7-day free trial. Stay compliant from £9/mo.';
+
 export const metadata: Metadata = {
-  title: 'Pricing — Plans for Every Landlord',
-  description:
-    'Simple, transparent pricing for LandlordReady. Solo and Portfolio plans with a 7-day free trial. Stay compliant from £9/mo.',
+  title: 'Pricing — Landlord Compliance Software from £9/mo',
+  description: pricingDescription,
+  alternates: { canonical: '/pricing' },
+  openGraph: {
+    title: 'Pricing — Landlord Compliance Software from £9/mo',
+    description: pricingDescription,
+    url: '/pricing',
+    type: 'website',
+  },
 };
 
 const soloFeatures = [

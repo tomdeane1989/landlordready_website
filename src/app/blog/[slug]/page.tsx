@@ -2,10 +2,13 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getPostBySlug, getPostSlugs, getRelatedPosts } from '@/lib/content';
+import { getCategoryName } from '@/lib/categories';
 import { compileMDXContent } from '@/lib/mdx';
 import { extractToc } from '@/lib/toc';
+import { extractFaq } from '@/lib/faq';
 import { ArticleJsonLd } from '@/components/seo/ArticleJsonLd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { FAQJsonLd } from '@/components/seo/FAQJsonLd';
 import { NewsletterForm } from '@/components/NewsletterForm';
 import { BlogHeroImage } from '@/components/blog/BlogHeroImage';
 import authors from '../../../../content/authors/authors.json';
@@ -27,7 +30,9 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   if (!post) return {};
 
   const { frontmatter } = post;
-  const ogImage = frontmatter.image || frontmatter.ogImage;
+  // Use the editorial hero image when the post has one; otherwise omit `images`
+  // so the opengraph-image.tsx route (branded title card) takes over.
+  const heroImage = frontmatter.image;
 
   return {
     title: frontmatter.seoTitle || frontmatter.title,
@@ -40,10 +45,12 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       publishedTime: frontmatter.publishedAt,
       modifiedTime: frontmatter.updatedAt,
       authors: [frontmatter.author],
-      ...(ogImage && {
+      ...(heroImage && {
         images: [
           {
-            url: ogImage.startsWith('/') ? `https://www.landlord-ready.com${ogImage}` : ogImage,
+            url: heroImage.startsWith('/')
+              ? `https://www.landlord-ready.com${heroImage}`
+              : heroImage,
             alt: frontmatter.imageAlt || frontmatter.title,
           },
         ],
@@ -65,6 +72,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const mdxContent = await compileMDXContent(content);
   const relatedPosts = getRelatedPosts(slug, frontmatter.category, 3);
   const author = authors.find((a) => a.id === frontmatter.author) || authors[0];
+  const categoryName = getCategoryName(frontmatter.category);
+  const faqs = extractFaq(content);
+  const postUrl = `https://www.landlord-ready.com/blog/${frontmatter.slug}`;
   const publishedDate = new Date(frontmatter.publishedAt).toLocaleDateString('en-GB', {
     day: 'numeric',
     month: 'long',
@@ -79,15 +89,23 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         publishedAt={frontmatter.publishedAt}
         updatedAt={frontmatter.updatedAt}
         authorName={author.name}
-        url={`https://www.landlord-ready.com/blog/${frontmatter.slug}`}
+        url={postUrl}
+        image={frontmatter.image}
+        section={categoryName}
+        wordCount={content.trim().split(/\s+/).length}
       />
       <BreadcrumbJsonLd
         items={[
           { name: 'Home', url: 'https://www.landlord-ready.com' },
           { name: 'Blog', url: 'https://www.landlord-ready.com/blog' },
-          { name: frontmatter.title, url: `https://www.landlord-ready.com/blog/${frontmatter.slug}` },
+          {
+            name: categoryName,
+            url: `https://www.landlord-ready.com/blog/category/${frontmatter.category}`,
+          },
+          { name: frontmatter.title, url: postUrl },
         ]}
       />
+      {faqs.length > 0 && <FAQJsonLd questions={faqs} />}
 
       <main className="py-12 md:py-16 px-6">
         <div className="max-w-6xl mx-auto">
@@ -105,8 +123,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               href={`/blog/category/${frontmatter.category}`}
               className="text-forest-green no-underline hover:underline"
             >
-              {frontmatter.category.replace(/-/g, ' ')}
+              {categoryName}
             </Link>
+            <span className="mx-2">›</span>
+            <span className="text-near-black">{frontmatter.title}</span>
           </nav>
 
           <div className="grid lg:grid-cols-[1fr_280px] gap-12">

@@ -1,10 +1,19 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
+const featuresDescription =
+  "Discover how LandlordReady helps landlords in England stay compliant with the Renters' Rights Act. Compliance dashboard, deadline alerts, regulation updates, document storage, and portfolio management — all in one place.";
+
 export const metadata: Metadata = {
-  title: 'Features — Compliance Tracking Made Simple',
-  description:
-    'Discover how LandlordReady helps landlords in England stay compliant with the Renters\' Rights Act. Compliance dashboard, deadline alerts, regulation updates, document storage, and portfolio management — all in one place.',
+  title: 'Features — Landlord Compliance Dashboard & Deadline Alerts',
+  description: featuresDescription,
+  alternates: { canonical: '/features' },
+  openGraph: {
+    title: 'Features — Landlord Compliance Dashboard & Deadline Alerts',
+    description: featuresDescription,
+    url: '/features',
+    type: 'website',
+  },
 };
 
 const features = [

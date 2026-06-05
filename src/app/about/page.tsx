@@ -2,10 +2,19 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SignupButton } from '@/components/SignupButton';
 
+const aboutDescription =
+  "Built by landlords, for landlords. Learn how LandlordReady helps private landlords in England stay compliant with the Renters' Rights Act 2025 and beyond.";
+
 export const metadata: Metadata = {
   title: 'About LandlordReady — Our Mission',
-  description:
-    'Built by landlords, for landlords. Learn how LandlordReady helps private landlords in England stay compliant with the Renters\' Rights Act 2025 and beyond.',
+  description: aboutDescription,
+  alternates: { canonical: '/about' },
+  openGraph: {
+    title: 'About LandlordReady — Our Mission',
+    description: aboutDescription,
+    url: '/about',
+    type: 'website',
+  },
 };
 
 export default function AboutPage() {

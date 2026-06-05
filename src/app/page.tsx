@@ -1,6 +1,21 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getRecentPosts } from '@/lib/content';
 import { SignupButton } from '@/components/SignupButton';
+
+export const metadata: Metadata = {
+  title: "Landlord Compliance Software for the Renters' Rights Act 2025",
+  description:
+    "LandlordReady is compliance software for UK private landlords. Track gas safety, EPC and EICR deadlines and stay compliant with the Renters' Rights Act 2025. Free 7-day trial.",
+  alternates: { canonical: '/' },
+  openGraph: {
+    title: "Landlord Compliance Software for the Renters' Rights Act 2025",
+    description:
+      "Track gas safety, EPC and EICR deadlines and stay compliant with the Renters' Rights Act 2025. Built for UK private landlords.",
+    url: '/',
+    type: 'website',
+  },
+};
 
 function CountdownDays() {
   const deadline = new Date('2026-05-01');

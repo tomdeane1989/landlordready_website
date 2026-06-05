@@ -5,6 +5,7 @@ import { SiteHeader } from '@/components/layout/SiteHeader';
 import { SiteFooter } from '@/components/layout/SiteFooter';
 import { CookieConsent } from '@/components/CookieConsent';
 import { OrganizationJsonLd } from '@/components/seo/OrganizationJsonLd';
+import { WebSiteJsonLd } from '@/components/seo/WebSiteJsonLd';
 import { GA_ID } from '@/lib/analytics';
 import './globals.css';
 
@@ -45,18 +46,11 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_GB',
     siteName: 'LandlordReady',
-    images: [
-      {
-        url: '/images/logos/logo-full-light.png',
-        width: 1200,
-        height: 630,
-        alt: 'LandlordReady — 10-minute compliance. Every week.',
-      },
-    ],
+    // og:image is provided per-route by the opengraph-image.tsx file convention
+    // (branded title cards), with editorial hero images on posts that have one.
   },
   twitter: {
     card: 'summary_large_image',
-    images: ['/images/logos/logo-full-light.png'],
   },
 };
 
@@ -98,6 +92,7 @@ export default function RootLayout({
       >
         <SiteHeader />
         <OrganizationJsonLd />
+        <WebSiteJsonLd />
         {children}
         <SiteFooter />
         <CookieConsent />

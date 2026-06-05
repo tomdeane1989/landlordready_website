@@ -1,3 +1,5 @@
+import { getAllPosts } from './content';
+
 export interface Category {
   slug: string;
   name: string;
@@ -37,10 +39,39 @@ export const categories: Category[] = [
   },
 ];
 
+function humanise(slug: string): string {
+  return slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+// Distinct category slugs actually used by published posts. Safe from import
+// cycles because content.ts never imports categories.ts.
+export function getUsedCategorySlugs(): string[] {
+  return Array.from(new Set(getAllPosts().map((p) => p.frontmatter.category)));
+}
+
+// Reconciled superset: curated entries plus a synthesised entry for any slug a
+// post uses that we haven't curated yet. Guarantees no published post can ever
+// point at a 404 category page or be dropped from the sitemap, regardless of
+// what category an agent emits.
+export function getAllCategories(): Category[] {
+  const bySlug = new Map(categories.map((c) => [c.slug, c]));
+  for (const slug of getUsedCategorySlugs()) {
+    if (!bySlug.has(slug)) {
+      const name = humanise(slug);
+      bySlug.set(slug, {
+        slug,
+        name,
+        description: `Guides and updates for private landlords on ${name.toLowerCase()}.`,
+      });
+    }
+  }
+  return Array.from(bySlug.values());
+}
+
 export function getCategoryBySlug(slug: string): Category | undefined {
-  return categories.find((cat) => cat.slug === slug);
+  return getAllCategories().find((cat) => cat.slug === slug);
 }
 
 export function getCategoryName(slug: string): string {
-  return getCategoryBySlug(slug)?.name ?? slug;
+  return getAllCategories().find((cat) => cat.slug === slug)?.name ?? humanise(slug);
 }
