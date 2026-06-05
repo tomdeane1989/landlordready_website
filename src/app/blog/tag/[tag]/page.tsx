@@ -15,14 +15,21 @@ export function generateStaticParams() {
   return getAllTags().map((tag) => ({ tag }));
 }
 
+// Tag pages with only one post are thin content — keep them reachable (follow)
+// but noindex so Google spends crawl budget on posts and substantial archives.
+const MIN_TAG_POSTS_TO_INDEX = 2;
+
 export async function generateMetadata({ params }: TagPageProps): Promise<Metadata> {
   const { tag } = await params;
+  const postCount = getPostsByTag(tag).length;
+  const thin = postCount < MIN_TAG_POSTS_TO_INDEX;
   return {
     title: `#${tag} — Landlord Compliance Articles`,
     description: `Articles tagged with "${tag}" — expert guides for private landlords.`,
     alternates: {
       canonical: `/blog/tag/${tag}`,
     },
+    ...(thin && { robots: { index: false, follow: true } }),
   };
 }
 

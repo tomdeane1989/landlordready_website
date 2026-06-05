@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { getAllPosts, getAllTags } from '@/lib/content';
+import { getAllPosts, getAllTags, getPostsByTag } from '@/lib/content';
 import { getAllCategories } from '@/lib/categories';
 import { features } from '@/lib/features';
 
@@ -40,11 +40,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: now,
   }));
 
-  const tagPages: MetadataRoute.Sitemap = getAllTags().map((tag) => ({
-    url: `${BASE_URL}/blog/tag/${tag}`,
-    changeFrequency: 'weekly',
-    priority: 0.5,
-  }));
+  // Only list tag pages that are indexable (2+ posts); single-post tag pages
+  // are noindexed, so keeping them out of the sitemap avoids a mixed signal.
+  const tagPages: MetadataRoute.Sitemap = getAllTags()
+    .filter((tag) => getPostsByTag(tag).length >= 2)
+    .map((tag) => ({
+      url: `${BASE_URL}/blog/tag/${tag}`,
+      changeFrequency: 'weekly',
+      priority: 0.5,
+    }));
 
   return [...staticPages, ...featurePages, ...postPages, ...categoryPages, ...tagPages];
 }
