@@ -20,8 +20,15 @@ export function OrganizationJsonLd() {
       '@type': 'Country',
       name: 'United Kingdom',
     },
-    // TODO: add `sameAs` (real social profile URLs) and `contactPoint`
-    // (support email) once confirmed — do not point at non-existent profiles.
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'customer support',
+      email: 'info@commitapp.io',
+      areaServed: 'GB',
+      availableLanguage: 'English',
+    },
+    // TODO: add `sameAs` (real social profile URLs) once confirmed —
+    // do not point at non-existent profiles.
   };
 
   return <JsonLd data={data} />;
