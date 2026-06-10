@@ -99,7 +99,7 @@ export const features: FeatureData[] = [
     name: 'Regulation Updates',
     headline: 'The law changes. Your dashboard keeps up.',
     description: [
-      "The Renters' Rights Act 2025 is being rolled out in phases, and it is not the only thing changing. Awaab's Law is extending to the private sector, safety regulations are being tightened, and local authorities are ramping up enforcement. Keeping track of what has changed and what it means for your properties is a job in itself.",
+      "The Renters' Rights Act 2025 is being rolled out in phases — Phase 1 has been in force since 1 May 2026 — and it is not the only thing changing. Awaab's Law is extending to the private sector, safety regulations are being tightened, and local authorities are ramping up enforcement. Keeping track of what has changed and what it means for your properties is a job in itself.",
       'LandlordReady monitors legislative changes at both the national and local level. When something changes that affects your properties, we do not just send you a news bulletin — we create actionable tasks on your dashboard with clear deadlines and plain-English explanations of what you need to do.',
       'No more trawling through government consultations or trying to decode legal jargon. Regulation Updates translates every relevant change into simple, specific actions tied to your property types and your local authority area.',
     ],

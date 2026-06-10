@@ -43,10 +43,10 @@ export default function AboutPage() {
           <div className="space-y-6 text-near-black leading-relaxed text-lg">
             <p>
               The Renters&apos; Rights Act 2025 is the biggest change to private
-              renting in a generation. It introduces mandatory periodic
-              tenancies, reformed possession grounds, a new Private Rented
-              Sector Database, and extends Awaab&apos;s Law to the private
-              sector. For landlords managing large portfolios, compliance teams
+              renting in a generation — and it is now in force. It introduced
+              mandatory periodic tenancies, reformed possession grounds, a new
+              Private Rented Sector Database, and extended Awaab&apos;s Law to the
+              private sector. For landlords managing large portfolios, compliance teams
               and legal departments can absorb the change. But most private
               landlords in England own just one or two properties — and
               they&apos;re expected to meet exactly the same standards.

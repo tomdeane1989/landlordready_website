@@ -17,14 +17,6 @@ export const metadata: Metadata = {
   },
 };
 
-function CountdownDays() {
-  const deadline = new Date('2026-05-01');
-  const now = new Date();
-  const days = Math.max(0, Math.ceil((deadline.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)));
-  if (days <= 0) return <span>The deadline has passed</span>;
-  return <span>{days} days until Phase 1 takes effect</span>;
-}
-
 export default function HomePage() {
   const recentPosts = getRecentPosts(3);
 
@@ -34,12 +26,12 @@ export default function HomePage() {
       <section className="bg-forest-green py-16 md:py-24 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-sm font-medium mb-4 tracking-wide uppercase text-amber">
-            <CountdownDays />
+            Now in force — Renters&apos; Rights Act 2025
           </p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-display text-parchment">
-            The Renters&apos; Rights Act is coming.
+            The Renters&apos; Rights Act is here.
             <br />
-            Are you ready?
+            Are your properties compliant?
           </h1>
           <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto text-pale-green">
             LandlordReady helps private landlords track every obligation, deadline,
@@ -68,19 +60,19 @@ export default function HomePage() {
       <section className="bg-pale-amber py-16 md:py-20 px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 font-display text-forest-green">
-            The law is changing. Most landlords aren&apos;t prepared.
+            The law has changed. Most landlords still aren&apos;t compliant.
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: 'New obligations landing fast',
+                title: 'New obligations are now in force',
                 description:
-                  "The Renters' Rights Act introduces mandatory periodic tenancies, reformed possession grounds, and Awaab's Law for the private sector. Phase 1 takes effect 1 May 2026.",
+                  "The Renters' Rights Act introduced mandatory periodic tenancies, reformed possession grounds, and Awaab's Law for the private sector. Phase 1 has been in force since 1 May 2026.",
               },
               {
                 title: 'Penalties are getting serious',
                 description:
-                  'Fines of up to £7,000 for a first offence and £40,000 for repeat breaches. Local authorities will have stronger enforcement powers than ever before.',
+                  'Fines of up to £7,000 for a first offence and £40,000 for repeat breaches. Local authorities now have stronger enforcement powers than ever before.',
               },
               {
                 title: 'No clear guide for small landlords',
@@ -241,11 +233,11 @@ export default function HomePage() {
       <section className="bg-forest-green py-16 md:py-24 px-6">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-display text-parchment">
-            You&apos;ve got time — let&apos;s sort it.
+            Let&apos;s get you compliant.
           </h2>
           <p className="text-lg mb-8 text-pale-green">
-            Phase 1 of the Renters&apos; Rights Act takes effect on 1 May 2026.
-            Get your properties compliant before the deadline.
+            Phase 1 of the Renters&apos; Rights Act has been in force since 1 May 2026.
+            Stay on top of every obligation, deadline and certificate.
           </p>
           <SignupButton
             className="inline-block px-8 py-4 rounded-lg font-semibold text-lg transition-opacity hover:opacity-90 bg-amber text-near-black"

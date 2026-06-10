@@ -53,7 +53,7 @@ const features = [
     label: 'Regulation Updates',
     headline: 'Stay ahead of changing legislation',
     paragraphs: [
-      'The Renters\u2019 Rights Act is being implemented in phases, Awaab\u2019s Law is extending to the private sector, and safety regulations are tightening. Keeping up with every change is a job in itself.',
+      'The Renters\u2019 Rights Act is being implemented in phases \u2014 Phase 1 is already in force \u2014 Awaab\u2019s Law is extending to the private sector, and safety regulations are tightening. Keeping up with every change is a job in itself.',
       'When the law changes, your dashboard updates automatically. We monitor legislation, government guidance, and regulatory announcements — then translate changes into clear, actionable tasks for your specific properties. No legalese, no guesswork.',
     ],
     bullets: [
